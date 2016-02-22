@@ -8,3 +8,7 @@ allow mediaserver efs_file:dir r_dir_perms;
 
 # /efs/wv.keys
 allow mediaserver efs_file:file r_file_perms;
+
+# Snap permissions
+allow mediaserver sensorservice_service:service_manager { find };
+allow mediaserver system_server:unix_stream_socket { read write };
