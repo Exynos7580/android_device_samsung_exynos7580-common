@@ -5148,6 +5148,9 @@ typedef struct {
 
 #define RIL_UNSOL_SNDMGR_WB_AMR_REPORT 20017
 
+/* SNDMGR */
+#define RIL_UNSOL_SNDMGR_WB_AMR_REPORT 20017
+
 /***********************************************************************/
 
 #if defined(ANDROID_MULTI_SIM)
