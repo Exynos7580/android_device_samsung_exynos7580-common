@@ -45,10 +45,14 @@ public class SlteRIL extends RIL {
     static final boolean RILJ_LOGV = true;
 
     private static final int RIL_REQUEST_DIAL_EMERGENCY_CALL = 10001;
+    private static final int RIL_UNSOL_STK_SEND_SMS_RESULT = 11002;
+    private static final int RIL_UNSOL_STK_CALL_CONTROL_RESULT = 11003;
 
     private static final int RIL_UNSOL_DEVICE_READY_NOTI = 11008;
     private static final int RIL_UNSOL_AM = 11010;
     private static final int RIL_UNSOL_SIM_PB_READY = 11021;
+
+    private static final int RIL_UNSOL_WB_AMR_STATE = 20017;
 
     public SlteRIL(Context context, int preferredNetworkType, int cdmaSubscription) {
         this(context, preferredNetworkType, cdmaSubscription, null);
@@ -349,6 +353,9 @@ public class SlteRIL extends RIL {
 
         /* Remap incorrect respones or ignore them */
         switch (origResponse) {
+            case 1041: //RIL_UNSOL_DC_RT_INFO_CHANGED
+            case RIL_UNSOL_STK_CALL_CONTROL_RESULT:
+            case RIL_UNSOL_WB_AMR_STATE:
             case RIL_UNSOL_DEVICE_READY_NOTI: /* Registrant notification */
             case RIL_UNSOL_SIM_PB_READY: /* Registrant notification */
                 Rlog.v(RILJ_LOG_TAG,
@@ -367,6 +374,9 @@ public class SlteRIL extends RIL {
         switch (newResponse) {
             case RIL_UNSOL_AM:
                 ret = responseString(p);
+                break;
+            case RIL_UNSOL_STK_SEND_SMS_RESULT:
+                ret = responseInts(p);
                 break;
             default:
                 // Rewind the Parcel
