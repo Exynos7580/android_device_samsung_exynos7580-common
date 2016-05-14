@@ -14,14 +14,12 @@
 # limitations under the License.
 #
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
-
-DEVICE_PATH := device/samsung/j7eltexx
+VENDOR_PATH := device/samsung/exynos7580-common
 
 BOARD_VENDOR := samsung
 
 # Include path
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 
 # CPU
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -33,11 +31,9 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_CORTEX_A53 := true
 
-ENABLE_CPUSETS := true
-
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := $(DEVICE_PATH)/bluetooth/libbt_vndcfg.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := $(VENDOR_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_SAMSUNG_BLUETOOTH := true
@@ -72,7 +68,7 @@ BOARD_USES_SCALER := true
 BOARD_USES_DT := true
 
 # Hardware
-BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
+BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/cmhw
 
 # HDMI
 BOARD_HDMI_INCAPABLE := true
@@ -83,10 +79,6 @@ EXYNOS5_ENHANCEMENTS := true
 ifdef EXYNOS5_ENHANCEMENTS
 COMMON_GLOBAL_CFLAGS += -DEXYNOS5_ENHANCEMENTS
 endif
-
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_sec
-TARGET_UNIFIED_DEVICE := true
 
 # Samsung LSI OpenMAX
 COMMON_GLOBAL_CFLAGS += -DUSE_NATIVE_SEC_NV12TILED
@@ -114,35 +106,22 @@ KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aa
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(DEVICE_PATH)/dt.img
-TARGET_KERNEL_CONFIG := cyanogenmod_j7elte_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/exynos7580
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_BOOTIMAGE_PARTITION_SIZE := 29360128
-BOARD_CACHEIMAGE_PARTITION_SIZE := 104857600
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 35651584
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1887436800
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 13514047488
-BOARD_FLASH_BLOCK_SIZE := 131072
-
-# Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7580
 
 # Platform
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_SOC := exynos7580
 TARGET_SLSI_VARIANT := cm
 
+# Properties (reset them here, include more in device if needed)
+TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
+
 # Radio
-SIM_COUNT := 2
-BOARD_MODEM_TYPE := tss310
-BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
+BOARD_RIL_CLASS := ../../../$(VENDOR_PATH)/ril
 TARGET_IGNORE_RO_BOOT_REVISION := true
-TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
-TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -162,7 +141,7 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 
 # SELinux
 BOARD_SEPOLICY_DIRS := \
-	device/samsung/j7eltexx/sepolicy
+	device/samsung/exynos7580-common/sepolicy
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
@@ -183,5 +162,3 @@ WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_BAND                        := 802_11_ABG
 
-# inherit from the proprietary version
--include vendor/samsung/j7e3gxx/BoardConfigVendor.mk

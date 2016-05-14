@@ -14,21 +14,12 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/j7eltexx
+LOCAL_PATH := device/samsung/exynos7580-common
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/j7eltexx/overlay
-
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := 320dpi
-PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+DEVICE_PACKAGE_OVERLAYS += device/samsung/exynos7580-common/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -49,9 +40,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf \
-    $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+    $(LOCAL_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf
 
 PRODUCT_PACKAGES += \
     audio.primary.universal7580 \
@@ -59,10 +48,6 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     tinymix
-
-# Bluetooth
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -80,22 +65,10 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # Graphics
 PRODUCT_PACKAGES += \
     gralloc.exynos5 \
     hwcomposer.exynos5
-
-# GPS
-PRODUCT_PACKAGES += \
-    libdmitry
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -107,40 +80,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libstlport
 
-# Lights
-PRODUCT_PACKAGES += \
-    lights.universal7580
-
 # Media profile
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
-# Power
-PRODUCT_PACKAGES += \
-    power.universal7580
-
-# Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.samsungexynos7580 \
-    init.baseband.rc \
-    init.rilcommon.rc \
-    init.samsungexynos7580.rc \
-    init.samsungexynos7580.usb.rc \
-    init.wifi.rc \
-    ueventd.samsungexynos7580.rc
-
 # Samsung
 PRODUCT_PACKAGES += \
     SamsungServiceMode
-
-# SYMBOLS FOR BLOBS
-PRODUCT_PACKAGES += \
-    libsamsung_symbols
 
 # hardware/samsung/AdvancedDisplay (MDNIE)
 PRODUCT_PACKAGES += \
@@ -168,10 +117,6 @@ PRODUCT_PACKAGES += \
     libsecril-client-sap \
     modemloader
 
-# cpboot-daemon for modem
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ril/sbin/cbd:root/sbin/cbd
-
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -183,6 +128,3 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
 $(call inherit-product, hardware/samsung_slsi-cm/exynos7580/exynos7580.mk)
-
-# Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/j7eltexx/j7eltexx-vendor.mk)
