@@ -5,6 +5,9 @@ domain_trans(init, sensorhubservice_exec, sensorhubservice)
 domain_trans(init, tee_exec, tee)
 domain_trans(init, wifiloader_exec, wifiloader)
 
+# Mount debugfs on /sys/kernel/debug.
+allow init debugfs:dir mounton;
+
 # /dev/block/mmcblk0p[0-9]
 allow init emmcblk_device:blk_file rw_file_perms;
 
