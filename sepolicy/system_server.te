@@ -7,8 +7,12 @@ allow system_server efs_file:dir r_dir_perms;
 # /efs/gyro_cal_data
 allow system_server sensor_efs_file:file r_file_perms;
 
-# /data/system/gps/.gps.interface.pipe.to_gpsd
-allow system_server gps_data_file:fifo_file rw_file_perms;
+# /data/system/gps/.gps.interface.pipe.*
+type_transition system_server system_data_file:fifo_file gps_data_file ".flp.interface.pipe.to_gpsd";
+type_transition system_server system_data_file:fifo_file gps_data_file ".gps.interface.pipe.to_gpsd";
+type_transition system_server system_data_file:fifo_file gps_data_file ".gps.interface.pipe.to_jni";
+allow system_server gps_data_file:fifo_file create_file_perms;
+allow system_server gps_data_file:dir rw_dir_perms;
 
 # /efs/prox_cal
 allow system_server efs_file:file r_file_perms;
