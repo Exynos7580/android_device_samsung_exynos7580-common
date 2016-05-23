@@ -1761,16 +1761,16 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
         out->config.channels = popcount(config->channel_mask);
         out->pcm_device = PCM_DEVICE;
         type = OUTPUT_HDMI;
-    } else if (flags & AUDIO_OUTPUT_FLAG_DEEP_BUFFER) {
-        ALOGV("*** %s: Deep buffer pcm config", __func__);
-        out->config = pcm_config_deep;
-        out->pcm_device = PCM_DEVICE_DEEP;
-        type = OUTPUT_DEEP_BUF;
-    } else {
+    } else if (flags & AUDIO_OUTPUT_FLAG_FAST) {
         ALOGV("*** %s: Fast buffer pcm config", __func__);
         out->config = pcm_config_fast;
         out->pcm_device = PCM_DEVICE;
         type = OUTPUT_LOW_LATENCY;
+    } else {
+        ALOGV("*** %s: Deep buffer pcm config", __func__);
+        out->config = pcm_config_deep;
+        out->pcm_device = PCM_DEVICE_DEEP;
+        type = OUTPUT_DEEP_BUF;
     }
 
     out->stream.common.get_sample_rate = out_get_sample_rate;
