@@ -208,7 +208,8 @@ public class SlteRIL extends RIL {
             if (RILJ_LOGV) {
                 riljLog("responseCallList dc.name=" + dc.name);
             }
-            dc.namePresentation = p.readInt();
+            // according to ril.h, namePresentation should be handled as numberPresentation;
+            dc.namePresentation = DriverCall.presentationFromCLIP(p.readInt());
 
             int uusInfoPresent = p.readInt();
             if (uusInfoPresent == 1) {
