@@ -2,7 +2,8 @@
 type cpboot-daemon, domain;
 type cpboot-daemon_exec, exec_type, file_type;
 
-tmpfs_domain(cpboot-daemon)
+net_domain(cpboot-daemon)
+init_daemon_domain(cpboot-daemon)
 wakelock_use(cpboot-daemon)
 unix_socket_connect(cpboot-daemon, property, init)
 
