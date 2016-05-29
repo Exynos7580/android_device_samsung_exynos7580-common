@@ -83,6 +83,47 @@ public class SlteRIL extends RIL {
         acceptCall(0, result);
     }
 
+    /**
+     *  Translates EF_SMS status bits to a status value compatible with
+     *  SMS AT commands.  See TS 27.005 3.1.
+     */
+    private int translateStatus(int status) {
+        switch(status & 0x7) {
+            case SmsManager.STATUS_ON_ICC_READ:
+                return 1;
+            case SmsManager.STATUS_ON_ICC_UNREAD:
+                return 0;
+            case SmsManager.STATUS_ON_ICC_SENT:
+                return 3;
+            case SmsManager.STATUS_ON_ICC_UNSENT:
+                return 2;
+        }
+        
+        // Default to READ.
+        return 1;
+    }
+    
+    @Override
+    public void writeSmsToSim(int status, String smsc, String pdu, Message response) {
+        status = translateStatus(status);
+        
+        RILRequest rr = RILRequest.obtain(RIL_REQUEST_WRITE_SMS_TO_SIM,
+                                          response);
+        
+        rr.mParcel.writeInt(status);
+        rr.mParcel.writeString(pdu);
+        rr.mParcel.writeString(smsc);
+        rr.mParcel.writeInt(255);     /* Samsung */
+        
+        if (RILJ_LOGV) {
+            riljLog(rr.serialString() + "> "
+                    + requestToString(rr.mRequest)
+                    + " " + status);
+        }
+        
+        send(rr);
+    }
+
     @Override
     public void
     dial(String address, int clirMode, UUSInfo uusInfo, Message result) {
@@ -306,6 +347,22 @@ public class SlteRIL extends RIL {
         rr.mParcel.writeInt(2);
         rr.mParcel.writeString(smscPDU);
         rr.mParcel.writeString(pdu);
+    }
+
+    /**
+     * The RIL can't handle the RIL_REQUEST_SEND_SMS_EXPECT_MORE
+     * request properly, so we use RIL_REQUEST_SEND_SMS instead.
+     */
+    @Override
+    public void sendSMSExpectMore(String smscPDU, String pdu, Message result) {
+        Rlog.v(RILJ_LOG_TAG, "XMM7260: sendSMSExpectMore");
+        
+        RILRequest rr = RILRequest.obtain(RIL_REQUEST_SEND_SMS, result);
+        constructGsmSendSmsRilRequest(rr, smscPDU, pdu);
+        
+        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
+        
+        send(rr);
     }
 
     // This method is used in the search network functionality.
