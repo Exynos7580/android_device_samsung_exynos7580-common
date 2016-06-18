@@ -1,1 +1,1 @@
-dontaudit domain rootfs:chr_file { read write };
+dontaudit domain kernel:system module_request;
