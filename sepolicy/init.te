@@ -1,6 +1,10 @@
 domain_trans(init, rootfs, cpboot-daemon)
 domain_trans(init, cpboot-daemon_exec, cpboot-daemon)
 domain_trans(init, gpsd_exec, gpsd)
+domain_trans(init, macloader_exec, macloader)
+domain_trans(init, modemloader_exec, modemloader)
+domain_trans(init, sensorhubservice_exec, sensorhubservice)
+domain_trans(init, wifiloader_exec, wifiloader)
 
 # /dev/block/mmcblk0p[0-9]
 allow init emmcblk_device:blk_file rw_file_perms;
