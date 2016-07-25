@@ -5,6 +5,9 @@ audio_hal.disable_two_mic=true
 # Camera
 camera2.portability.force_api=1
 
+# Exynos
+debug.hwc.force_gpu=1
+
 # Radio
 #telephony.lteOnCdmaDevice=0
 persist.radio.apm_sim_not_pwdn=1
