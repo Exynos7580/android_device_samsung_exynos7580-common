@@ -1170,6 +1170,12 @@ static void do_out_standby(struct stream_out *out)
 
     ALOGV("%s: output standby: %d", __func__, out->standby);
 
+    /* if in-call, dont turn off PCM */
+    if (adev->in_call) {
+        ALOGV("%s: output standby in-call, exiting...", __func__);
+        return 0;
+    }
+
     if (!out->standby) {
         for (i = 0; i < PCM_TOTAL; i++) {
             if (out->pcm[i]) {
@@ -1547,6 +1553,12 @@ static int in_set_format(struct audio_stream *stream __unused,
 static void do_in_standby(struct stream_in *in)
 {
     struct audio_device *adev = in->dev;
+
+    /* if in-call, dont turn off PCM */
+    if (adev->in_call) {
+        ALOGV("%s: input standby in-call, exiting...", __func__);
+        return 0;
+    }
 
     if (!in->standby) {
         pcm_close(in->pcm);
