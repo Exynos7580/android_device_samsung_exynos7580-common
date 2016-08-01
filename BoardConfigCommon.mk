@@ -121,7 +121,6 @@ TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
 # Radio
 BOARD_RIL_CLASS := ../../../$(VENDOR_PATH)/ril
-TARGET_IGNORE_RO_BOOT_REVISION := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
