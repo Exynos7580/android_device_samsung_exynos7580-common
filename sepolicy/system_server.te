@@ -11,6 +11,8 @@ allow system_server sensor_efs_file:file r_file_perms;
 type_transition system_server system_data_file:fifo_file gps_data_file ".flp.interface.pipe.to_gpsd";
 type_transition system_server system_data_file:fifo_file gps_data_file ".gps.interface.pipe.to_gpsd";
 type_transition system_server system_data_file:fifo_file gps_data_file ".gps.interface.pipe.to_jni";
+type_transition system_server system_data_file:fifo_file gps_data_file ".pipe.gpsd_to_lhd.to_server";
+
 allow system_server gps_data_file:fifo_file create_file_perms;
 allow system_server gps_data_file:dir rw_dir_perms;
 
@@ -26,3 +28,7 @@ allow system_server wifi_efs_file:file r_file_perms;
 allow system_server sysfs_mdnie_writable:lnk_file rw_file_perms;
 allow system_server sysfs_mdnie_writable:dir rw_dir_perms;
 allow system_server sysfs_mdnie_writable:file rw_file_perms;
+
+# app efs
+allow system_server app_efs_file:file read;
+allow system_server batch_io_device:chr_file { open read write ioctl };
