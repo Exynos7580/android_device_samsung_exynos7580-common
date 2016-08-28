@@ -148,6 +148,9 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/exynos7580-common/sepolicy
 
+# Seccomp filters
+BOARD_SECCOMP_POLICY += device/samsung/exynos7580-common/seccomp
+
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
