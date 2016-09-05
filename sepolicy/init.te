@@ -1,10 +1,3 @@
-domain_trans(init, rootfs, cpboot-daemon)
-domain_trans(init, macloader_exec, macloader)
-domain_trans(init, modemloader_exec, modemloader)
-domain_trans(init, sensorhubservice_exec, sensorhubservice)
-domain_trans(init, tee_exec, tee)
-domain_trans(init, wifiloader_exec, wifiloader)
-
 # Mount debugfs on /sys/kernel/debug.
 allow init debugfs:dir mounton;
 
@@ -17,6 +10,8 @@ allow init tmpfs:lnk_file create_file_perms;
 # /data
 allow init sdcardd_exec:file r_file_perms;
 
-# LD_SHIM_LIBS
-allow init gpsd:process { noatsecure };
-allow init mediaserver:process { noatsecure };
+# sysfs iio:device[0-9]
+allow init sysfs:lnk_file setattr;
+
+# read/chown mDNIE symlinks
+allow init sysfs_mdnie_writable:lnk_file { read setattr };
