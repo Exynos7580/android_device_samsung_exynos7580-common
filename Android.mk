@@ -28,6 +28,6 @@ $(shell mkdir -p  $(TARGET_OUT)/vendor/lib; \
     ln -sf /system/vendor/lib/libOpenCL.so.1.1 \
     $(TARGET_OUT)/vendor/lib/libOpenCL.so.1; \
     ln -sf /system/vendor/lib/libOpenCL.so.1 \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so);
+    $(TARGET_OUT)/vendor/lib/libOpenCL.so)
 
 endif
