@@ -67,8 +67,8 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # Gello
-PRODUCT_PACKAGES += \
-    Gello
+#PRODUCT_PACKAGES += \
+#    Gello
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -100,8 +100,8 @@ PRODUCT_PACKAGES += \
     SamsungServiceMode
 
 # hardware/samsung/AdvancedDisplay (MDNIE)
-PRODUCT_PACKAGES += \
-    AdvancedDisplay
+#PRODUCT_PACKAGES += \
+#    AdvancedDisplay
 
 # Wifi
 PRODUCT_PACKAGES += \
