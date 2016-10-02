@@ -119,9 +119,6 @@ TARGET_SLSI_VARIANT := cm
 # Properties (reset them here, include more in device if needed)
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
-# Radio
-BOARD_RIL_CLASS := ../../../$(VENDOR_PATH)/ril
-
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -140,9 +137,6 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 # SELinux
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/exynos7580-common/sepolicy
-
-# Sensors
-TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # WEBGL
 ENABLE_WEBGL := true
