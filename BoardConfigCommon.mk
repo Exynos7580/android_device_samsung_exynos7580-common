@@ -32,7 +32,6 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_CORTEX_A53 := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := $(VENDOR_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -119,9 +118,6 @@ TARGET_SLSI_VARIANT := cm
 # Properties (reset them here, include more in device if needed)
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
-# Radio
-BOARD_RIL_CLASS := ../../../$(VENDOR_PATH)/ril
-
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -140,9 +136,6 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 # SELinux
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/exynos7580-common/sepolicy
-
-# Sensors
-TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # WEBGL
 ENABLE_WEBGL := true
