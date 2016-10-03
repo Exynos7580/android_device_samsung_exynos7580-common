@@ -1169,7 +1169,7 @@ static void do_out_standby(struct stream_out *out)
     /* if in-call, dont turn off PCM */
     if (adev->in_call) {
         ALOGV("%s: output standby in-call, exiting...", __func__);
-        return 0;
+        return;
     }
 
     if (!out->standby) {
@@ -1553,7 +1553,7 @@ static void do_in_standby(struct stream_in *in)
     /* if in-call, dont turn off PCM */
     if (adev->in_call) {
         ALOGV("%s: input standby in-call, exiting...", __func__);
-        return 0;
+        return;
     }
 
     if (!in->standby) {
