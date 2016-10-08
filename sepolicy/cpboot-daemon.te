@@ -1,5 +1,5 @@
 # modem daemon sec label
-type cpboot-daemon, domain;
+type cpboot-daemon, domain, domain_deprecated;
 type cpboot-daemon_exec, exec_type, file_type;
 
 net_domain(cpboot-daemon)
