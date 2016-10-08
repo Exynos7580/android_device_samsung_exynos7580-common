@@ -1,6 +1,6 @@
 #### wifiloader
 #
-type wifiloader, domain;
+type wifiloader, domain, domain_deprecated;
 type wifiloader_exec, exec_type, file_type;
 
 init_daemon_domain(wifiloader)
