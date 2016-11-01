@@ -135,9 +135,6 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/exynos7580-common/sepolicy
 
-# Sensors
-TARGET_NO_SENSOR_PERMISSION_CHECK := true
-
 # WEBGL
 ENABLE_WEBGL := true
 

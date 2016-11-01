@@ -93,10 +93,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
-# Samsung
-PRODUCT_PACKAGES += \
-    SamsungServiceMode
-
 # hardware/samsung/AdvancedDisplay (MDNIE)
 #PRODUCT_PACKAGES += \
 #    AdvancedDisplay
@@ -112,12 +108,8 @@ PRODUCT_PACKAGES += \
 
 # Ril
 PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full
-
-PRODUCT_PACKAGES += \
     libsecril-client \
-    libsecril-client-sap \
-    modemloader
+    libsecril-client-sap
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
