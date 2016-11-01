@@ -104,12 +104,8 @@ PRODUCT_PACKAGES += \
 
 # Ril
 PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full
-
-PRODUCT_PACKAGES += \
     libsecril-client \
-    libsecril-client-sap \
-    modemloader
+    libsecril-client-sap
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
