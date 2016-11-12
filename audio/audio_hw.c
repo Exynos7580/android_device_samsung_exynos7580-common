@@ -857,11 +857,7 @@ static void adev_set_call_audio_path(struct audio_device *adev)
         case AUDIO_DEVICE_OUT_BLUETOOTH_SCO:
         case AUDIO_DEVICE_OUT_BLUETOOTH_SCO_HEADSET:
         case AUDIO_DEVICE_OUT_BLUETOOTH_SCO_CARKIT:
-            if (adev->bluetooth_nrec) {
-                device_type = SOUND_AUDIO_PATH_BLUETOOTH;
-            } else {
-                device_type = SOUND_AUDIO_PATH_BLUETOOTH_NO_NR;
-            }
+            device_type = SOUND_AUDIO_PATH_BLUETOOTH;
             break;
         default:
             /* if output device isn't supported, use handset by default */
