@@ -1,0 +1,11 @@
+# /dev/seiren
+allow mediacodec seiren_device:chr_file { ioctl rw_file_perms };
+# /dev/s5p-smem
+
+allow mediacodec secmem_device:chr_file { ioctl rw_file_perms };
+
+# /system/lib/omx/
+allow mediacodec system_file:dir r_dir_perms;
+
+# /sys/class/video4linux/video6/name
+allow mediacodec sysfs:file r_file_perms;
