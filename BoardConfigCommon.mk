@@ -135,9 +135,6 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/exynos7580-common/sepolicy
 
-# WEBGL
-ENABLE_WEBGL := true
-
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true
 BOARD_WLAN_DEVICE                := bcmdhd
