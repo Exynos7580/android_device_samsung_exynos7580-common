@@ -51,6 +51,8 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 # Graphics
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
