@@ -2,3 +2,5 @@
 
 # Allow to create files and directories /data/app/mcRegistry
 file_type_auto_trans(tee, apk_data_file, tee_data_file);
+
+set_prop(tee, tee_prop)
