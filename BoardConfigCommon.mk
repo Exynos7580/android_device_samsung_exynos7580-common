@@ -134,6 +134,9 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 
+# SDClang
+TARGET_USE_SDCLANG := true
+
 # SELinux
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/exynos7580-common/sepolicy
