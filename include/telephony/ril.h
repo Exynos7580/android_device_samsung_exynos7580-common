@@ -1012,11 +1012,11 @@ typedef struct
   int              pin1_replaced;   /* applicable to USIM, CSIM & ISIM */
   RIL_PinState     pin1;
   RIL_PinState     pin2;
-  int              foo1;            /* Samsung */
-  int              foo2;            /* Samsung */
-  int              foo3;            /* Samsung */
-  int              foo4;            /* Samsung */
-  int              foo5;            /* Samsung */
+  int              foo1;            // pin1_num_retries
+  int              foo2;            // puk1_num_retries
+  int              foo3;            // pin2_num_retries
+  int              foo4;            // puk2_num_retries
+  int              foo5;            // perso_unblock_retries
 } RIL_AppStatus;
 
 /* Deprecated, use RIL_CardStatus_v6 */
@@ -5210,13 +5210,12 @@ typedef struct {
 #define RIL_REQUEST_HANGUP_VT 10021
 #define RIL_REQUEST_HOLD 10022
 #define RIL_REQUEST_SET_SIM_POWER 10023
-#define RIL_REQUEST_SET_LTE_BAND_MODE 10024
 #define RIL_REQUEST_UICC_GBA_AUTHENTICATE_BOOTSTRAP 10025
 #define RIL_REQUEST_UICC_GBA_AUTHENTICATE_NAF 10026
 #define RIL_REQUEST_GET_INCOMING_COMMUNICATION_BARRING 10027
 #define RIL_REQUEST_SET_INCOMING_COMMUNICATION_BARRING 10028
 #define RIL_REQUEST_QUERY_CNAP 10029
-
+#define RIL_REQUEST_SET_TRANSFER_CALL 10030
 
 /***********************************************************************/
 
@@ -5853,6 +5852,7 @@ typedef struct {
 
 #define SAMSUNG_UNSOL_RESPONSE_BASE 11000
 
+#define RIL_UNSOL_RESPONSE_NEW_CB_MSG 11000
 #define RIL_UNSOL_RELEASE_COMPLETE_MESSAGE 11001
 #define RIL_UNSOL_STK_SEND_SMS_RESULT 11002
 #define RIL_UNSOL_STK_CALL_CONTROL_RESULT 11003
@@ -5866,7 +5866,6 @@ typedef struct {
 #define RIL_UNSOL_FACTORY_AM 11026
 #define RIL_UNSOL_IMS_REGISTRATION_STATE_CHANGED 11027
 #define RIL_UNSOL_MODIFY_CALL 11028
-#define RIL_UNSOL_SR 11029
 #define RIL_UNSOL_CS_FALLBACK 11030
 #define RIL_UNSOL_VOICE_SYSTEM_ID 11032
 #define RIL_UNSOL_IMS_RETRYOVER 11034
@@ -5876,14 +5875,12 @@ typedef struct {
 #define RIL_UNSOL_HOME_NETWORK_NOTI 11043
 #define RIL_UNSOL_STK_CALL_STATUS 11054
 #define RIL_UNSOL_MODEM_CAP 11056
+#define RIL_UNSOL_SIM_SWAP_STATE_CHANGED 11057
 #define RIL_UNSOL_DUN 11060
 #define RIL_UNSOL_IMS_PREFERENCE_CHANGED 11061
 #define RIL_UNSOL_SIM_APPLICATION_REFRESH 11062
 #define RIL_UNSOL_UICC_APPLICATION_STATUS 11063
-
-/* SNDMGR */
-
-#define RIL_UNSOL_SNDMGR_WB_AMR_REPORT 20017
+#define RIL_UNSOL_VOICE_RADIO_BEARER_HO_STATUS 11064
 
 /* SNDMGR */
 #define RIL_UNSOL_SNDMGR_WB_AMR_REPORT 20017
