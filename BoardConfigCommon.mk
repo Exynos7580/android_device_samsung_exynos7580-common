@@ -51,6 +51,7 @@ BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
 # Graphics
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
