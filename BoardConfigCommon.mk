@@ -144,9 +144,6 @@ BOARD_SEPOLICY_DIRS := \
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
-# WEBGL
-ENABLE_WEBGL := true
-
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true
 BOARD_WLAN_DEVICE                := bcmdhd
