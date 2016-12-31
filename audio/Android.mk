@@ -19,7 +19,11 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := audio.primary.$(TARGET_BOOTLOADER_BOARD_NAME)
 LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := optional 
+
+ifeq ($(TARGET_DEVICE), gvwifi gvlte)
+LOCAL_CFLAGS += -DAUDIO_GV
+endif
 
 LOCAL_SRC_FILES := audio_hw.c ril_interface.c
 
