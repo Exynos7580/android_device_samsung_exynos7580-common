@@ -66,10 +66,6 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # Graphics
 PRODUCT_PACKAGES += \
     gralloc.exynos5 \
