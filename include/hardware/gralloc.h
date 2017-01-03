@@ -148,16 +148,16 @@ enum {
     /* SAMSUNG */
     GRALLOC_USAGE_PRIVATE_NONECACHE     = 0x00800000,
 
-    GRALLOC_USAGE_HW_ION                = 0x01000000,
-    GRALLOC_USAGE_HW_FIMC1              = 0x02000000,
+    GRALLOC_USAGE_HW_FIMC1              = 0x01000000,
+    GRALLOC_USAGE_HW_ION                = 0x02000000,
     GRALLOC_USAGE_YUV_ADDR              = 0x04000000,
     GRALLOC_USAGE_CAMERA                = 0x08000000,
 
     /* SEC Private usage , for Overlay path at HWC */
     GRALLOC_USAGE_HWC_HWOVERLAY         = 0x20000000,
-
-    GRALLOC_USAGE_VIDEO_EXT             = 0x200000,
 #endif
+    GRALLOC_USAGE_VIDEO_EXT             = 0x200000,
+    GRALLOC_USAGE_GPU_BUFFER            = 0x00800000,
 };
 
 /*****************************************************************************/
