@@ -1,6 +1,7 @@
 Common Device configuration for the Samsung Exynos 7580
 
 Copyright (C) 2016 The CyanogenMod Project
+          (C) 2017 The LineageOS Project
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -13,6 +14,5 @@ Copyright (C) 2016 The CyanogenMod Project
 TODO:
 -----
  - HWC VSync
- - Camera (co-related with HWC)
  - Figure Out Incoming Calls
- - Sepolicy needs to be fixed & Updated
+ - Sepolicy needs to be fixed
