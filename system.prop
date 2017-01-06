@@ -8,6 +8,10 @@ debug.hwc.force_gpu=1
 # Wifi
 wifi.interface=wlan0
 
+# media
+media.stagefright.legacyencoder=1
+media.stagefright.less-secure=1
+
 # misc
 ro.chipname=exynos7580
 ro.arch=exynos7580
