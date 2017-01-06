@@ -51,8 +51,10 @@ PRODUCT_PACKAGES += \
     tinymix
 
 # Charger
+# Use cm images if available, aosp ones otherwise
 PRODUCT_PACKAGES += \
-    charger_res_images
+    charger_res_images \
+    cm_charger_res_images
 
 # Camera
 PRODUCT_PACKAGES += \
