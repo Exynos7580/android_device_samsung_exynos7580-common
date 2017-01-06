@@ -69,6 +69,7 @@ BOARD_USES_DT := true
 
 # Hardware
 BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/cmhw
+BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 
 # HDMI
 BOARD_HDMI_INCAPABLE := true
