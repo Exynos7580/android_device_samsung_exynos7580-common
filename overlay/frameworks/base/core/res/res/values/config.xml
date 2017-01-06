@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2014, The Android Open Source Project
+** Copyright 2017, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -32,18 +32,21 @@
     <string-array translatable="false" name="networkAttributes">
         <item>wifi,1,1,1,-1,true</item>
         <item>mobile,0,0,0,-1,true</item>
-        <item>mobile_mms,2,0,2,180000,true</item>
+        <item>mobile_mms,2,0,2,240000,true</item>
         <item>mobile_supl,3,0,2,60000,true</item>
         <item>mobile_dun,4,0,2,60000,true</item>
         <item>mobile_hipri,5,0,3,60000,true</item>
         <item>bluetooth,7,7,0,-1,true</item>
+        <item>ethernet,9,9,2,-1,true</item>
         <item>mobile_fota,10,0,2,60000,true</item>
-        <item>mobile_ims,11,0,2,-1,true</item>
+        <item>mobile_ims,11,0,1,-1,true</item>
         <item>mobile_cbs,12,0,2,60000,true</item>
         <item>wifi_p2p,13,1,0,-1,true</item>
         <item>mobile_ia,14,0,2,-1,true</item>
+        <item>mobile_emergency,15,0,2,-1,true</item>
         <item>mobile_bip,23,0,2,60000,true</item>
-        <item>mobile_xcap,27,0,2,-1,true</item>
+        <item>mobile_cas,24,0,3,60000,true</item>
+        <item>mobile_xcap,27,0,2,60000,true</item>
         <item>mobile_ent1,28,0,2,-1,true</item>
         <item>mobile_ent2,29,0,2,-1,true</item>
     </string-array>
@@ -209,6 +212,6 @@
 
     <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
-    <string name="config_radio_access_family">GSM|WCDMA|LTE</string>
+    <string name="config_radio_access_family">GSM | WCDMA | LTE | CDMA | EVDO</string>
 
 </resources>
