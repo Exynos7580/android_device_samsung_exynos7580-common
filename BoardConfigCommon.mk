@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+#           (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,6 +41,11 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := universal7580
 TARGET_NO_BOOTLOADER := true
+
+# Boot animation
+TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
