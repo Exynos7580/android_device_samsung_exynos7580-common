@@ -44,7 +44,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libxml2
+    libxml2	\
     Snap
 
 # Filesystem management tools
