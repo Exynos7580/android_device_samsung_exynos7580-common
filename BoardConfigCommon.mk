@@ -34,7 +34,6 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := $(VENDOR_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -69,11 +68,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 BOARD_USES_SCALER := true
 BOARD_USES_DT := true
 
-# Hardware
-BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/cmhw
-
 # HDMI
-BOARD_HDMI_INCAPABLE := true
 BOARD_USES_GSC_VIDEO := true
 
 EXYNOS5_ENHANCEMENTS := true
@@ -139,9 +134,6 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 # SELinux
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/exynos7580-common/sepolicy
-
-# Sensors
-TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true
