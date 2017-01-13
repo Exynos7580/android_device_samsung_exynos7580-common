@@ -121,9 +121,6 @@ TARGET_SLSI_VARIANT := cm
 # Properties (reset them here, include more in device if needed)
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
-# Radio
-BOARD_RIL_CLASS := ../../../$(VENDOR_PATH)/ril
-
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
