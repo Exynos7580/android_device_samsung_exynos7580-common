@@ -86,6 +86,9 @@ BOARD_USES_DT := true
 # Virtual Display
 BOARD_USES_VIRTUAL_DISPLAY := true
 
+# FIMG2D
+BOARD_USES_SKIA_FIMGAPI := true
+
 # HDMI
 BOARD_USES_GSC_VIDEO := true
 
