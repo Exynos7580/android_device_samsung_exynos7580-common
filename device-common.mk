@@ -92,6 +92,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AdvancedDisplay
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.power.rc
+
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd \
