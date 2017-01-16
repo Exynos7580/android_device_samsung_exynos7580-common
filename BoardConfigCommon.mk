@@ -80,6 +80,9 @@ BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 # Virtual Display
 BOARD_USES_VIRTUAL_DISPLAY := true
 
+# FIMG2D
+BOARD_USES_SKIA_FIMGAPI := true
+
 # HDMI
 BOARD_HDMI_INCAPABLE := true
 BOARD_USES_GSC_VIDEO := true
