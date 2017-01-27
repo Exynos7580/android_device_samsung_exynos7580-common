@@ -89,6 +89,9 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 # of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
+# Renderscript
+BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
+
 # (G)SCALER
 BOARD_USES_SCALER := true
 BOARD_USES_DT := true
