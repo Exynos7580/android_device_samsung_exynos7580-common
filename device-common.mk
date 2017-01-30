@@ -70,11 +70,6 @@ PRODUCT_PACKAGES += \
     gralloc.exynos5 \
     hwcomposer.exynos5
 
-# Keylayouts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/idc/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc \
-    $(LOCAL_PATH)/idc/Synaptics_RMI4_TouchPad_Sensor.idc:system/usr/idc/Synaptics_RMI4_TouchPad_Sensor.idc
-
 # Libstlport
 PRODUCT_PACKAGES += \
     libstlport

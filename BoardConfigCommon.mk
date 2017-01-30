@@ -97,7 +97,6 @@ BOARD_USES_SCALER := true
 BOARD_USES_DT := true
 
 # Hardware
-BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/cmhw
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 
 # Virtual Display
