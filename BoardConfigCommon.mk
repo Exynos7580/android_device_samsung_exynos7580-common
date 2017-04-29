@@ -23,7 +23,9 @@ BOARD_VENDOR := samsung
 TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 
 # Architecture
+ifeq ($(FORCE_32_BIT),)
 FORCE_32_BIT := true
+endif
 
 ifneq ($(FORCE_32_BIT),true)
 TARGET_BOARD_SUFFIX := _64
