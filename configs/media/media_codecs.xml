@@ -79,8 +79,8 @@ Only the three quirks included above are recognized at this point:
 
 <MediaCodecs>
     <Settings>
-        <String name="supports-multiple-secure-codecs" value="true" />
-        <String name="supports-secure-with-non-secure-codec" value="true" />
+        <Setting name="supports-multiple-secure-codecs" value="true" />
+        <Setting name="supports-secure-with-non-secure-codec" value="true" />
         <Setting name="max-video-encoder-input-buffers" value="9" />
     </Settings>
     <Decoders>
