@@ -17,10 +17,18 @@
 
 VENDOR_PATH := device/samsung/exynos7580-common
 
-BOARD_VENDOR := samsung
-
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
+
+# Platform
+BOARD_VENDOR := samsung
+TARGET_BOARD_PLATFORM := exynos5
+TARGET_SOC := exynos7580
+TARGET_SLSI_VARIANT := cm
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := universal7580
+TARGET_NO_BOOTLOADER := true
 
 # Architecture
 FORCE_32_BIT := true
@@ -57,10 +65,6 @@ BOARD_CUSTOM_BT_CONFIG := $(VENDOR_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_SAMSUNG_BLUETOOTH := true
-
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := universal7580
-TARGET_NO_BOOTLOADER := true
 
 # Boot animation
 TARGET_BOOTANIMATION_PRELOAD := true
@@ -148,13 +152,15 @@ ifneq ($(FORCE_32_BIT),true)
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 endif
 
+# CPUsets
+ENABLE_CPUSETS := true
+
+# Renderscript
+BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
+BOARD_OVERRIDE_RS_CPU_VARIANT_64 := cortex-a53
+
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
-
-# Platform
-TARGET_BOARD_PLATFORM := exynos5
-TARGET_SOC := exynos7580
-TARGET_SLSI_VARIANT := cm
 
 # Properties (reset them here, include more in device if needed)
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
