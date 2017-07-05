@@ -1078,14 +1078,19 @@ static void release_buffer(struct resampler_buffer_provider *buffer_provider,
 static ssize_t read_frames(struct stream_in *in, void *buffer, ssize_t frames)
 {
     ssize_t frames_wr = 0;
-    size_t frame_size = audio_stream_in_frame_size(&in->stream);
 
     while (frames_wr < frames) {
         size_t frames_rd = frames - frames_wr;
+
+        ALOGT("%s: frames_rd: %zd, frames_wr: %zd, in->config.channels: %d\n",
+              __func__,
+              frames_rd,
+              frames_wr,
+              in->config->channels);
+
         if (in->resampler != NULL) {
             in->resampler->resample_from_provider(in->resampler,
-                                                  (int16_t *)((char *)buffer +
-                                                              frames_wr * frame_size),
+                    (int16_t *)((char *)buffer + pcm_frames_to_bytes(in->pcm, frames_wr)),
                                                   &frames_rd);
         } else {
             struct resampler_buffer buf = {
@@ -1094,10 +1099,9 @@ static ssize_t read_frames(struct stream_in *in, void *buffer, ssize_t frames)
             };
             get_next_buffer(&in->buf_provider, &buf);
             if (buf.raw != NULL) {
-                memcpy((char *)buffer +
-                       frames_wr * frame_size,
-                       buf.raw,
-                       buf.frame_count * frame_size);
+                memcpy((char *)buffer + pcm_frames_to_bytes(in->pcm, frames_wr),
+                        buf.raw,
+                        pcm_frames_to_bytes(in->pcm, buf.frame_count));
                 frames_rd = buf.frame_count;
             }
             release_buffer(&in->buf_provider, &buf);
@@ -1109,6 +1113,7 @@ static ssize_t read_frames(struct stream_in *in, void *buffer, ssize_t frames)
 
         frames_wr += frames_rd;
     }
+
     return frames_wr;
 }
 
