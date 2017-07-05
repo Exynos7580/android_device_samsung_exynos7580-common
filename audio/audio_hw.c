@@ -2119,11 +2119,13 @@ static int adev_set_mic_mute(struct audio_hw_device *dev, bool state)
 
     ALOGV("*** %s: set mic mute: %d\n", __func__, state);
 
+    pthread_mutex_lock(&adev->lock);
     if (adev->in_call) {
         ril_set_mute(&adev->ril, mute_condition);
     }
 
     adev->mic_mute = state;
+    pthread_mutex_unlock(&adev->lock);
 
     return 0;
 }
