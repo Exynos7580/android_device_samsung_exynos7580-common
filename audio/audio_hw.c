@@ -360,7 +360,7 @@ static int get_input_source_id(audio_source_t source, bool wb_amr)
 
 static void do_out_standby(struct stream_out *out);
 static void adev_set_call_audio_path(struct audio_device *adev);
-static int adev_set_voice_volume(struct audio_hw_device *dev, float volume);
+static int voice_set_volume(struct audio_hw_device *dev, float volume);
 
 static void lock_input_stream(struct stream_in *in);
 static void unlock_input_stream(struct stream_in *in);
@@ -792,7 +792,7 @@ static void start_call(struct audio_device *adev)
     }
 
     adev_set_call_audio_path(adev);
-    adev_set_voice_volume(&adev->hw_device, adev->voice_volume);
+    voice_set_volume(&adev->hw_device, adev->voice_volume);
 
     ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_START);
 }
@@ -2034,7 +2034,7 @@ static int adev_init_check(const struct audio_hw_device *dev __unused)
     return 0;
 }
 
-static int adev_set_voice_volume(struct audio_hw_device *dev, float volume)
+static int voice_set_volume(struct audio_hw_device *dev, float volume)
 {
     struct audio_device *adev = (struct audio_device *)dev;
 
@@ -2066,6 +2066,18 @@ static int adev_set_voice_volume(struct audio_hw_device *dev, float volume)
 
         ril_set_call_volume(&adev->ril, sound_type, volume);
     }
+
+    return 0;
+}
+
+static int adev_set_voice_volume(struct audio_hw_device *dev, float volume)
+{
+    struct audio_device *adev = (struct audio_device *)dev;
+    int rc;
+
+    pthread_mutex_lock(&adev->lock);
+    rc = voice_set_volume(dev, volume);
+    pthread_mutex_unlock(&adev->lock);
 
     return 0;
 }
