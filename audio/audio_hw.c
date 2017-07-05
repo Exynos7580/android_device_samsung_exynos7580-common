@@ -4,7 +4,7 @@
  * Copyright (C) 2013-2015 The CyanogenMod Project
  *               Daniel Hillenbrand <codeworkx@cyanogenmod.com>
  *               Guillaume "XpLoDWilD" Lesniak <xplodgui@gmail.com>
- * Copyright (c) 2015-2016 Andreas Schneider <asn@cryptomilk.org>
+ * Copyright (c) 2015-2017 Andreas Schneider <asn@cryptomilk.org>
  * Copyright (c) 2015-2017 Christopher N. Hesse <raymanfx@gmail.org>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -258,6 +258,7 @@ struct stream_in {
     struct resampler_buffer_provider buf_provider;
     int16_t *buffer;
     size_t frames_in;
+    int64_t frames_read; /* total frames read, not cleared when entering standby */
     int read_status;
 
     audio_source_t input_source;
@@ -604,7 +605,7 @@ static void start_bt_sco(struct audio_device *adev)
 
     adev->pcm_sco_tx = pcm_open(PCM_CARD,
                                 PCM_DEVICE_SCO,
-                                PCM_IN,
+                                PCM_IN | PCM_MONOTONIC,
                                 sco_config);
     if (adev->pcm_sco_tx && !pcm_is_ready(adev->pcm_sco_tx)) {
         ALOGE("%s: cannot open PCM SCO TX stream: %s",
@@ -680,7 +681,7 @@ static int start_voice_call(struct audio_device *adev)
 
     adev->pcm_voice_tx = pcm_open(PCM_CARD,
                                   PCM_DEVICE_VOICE,
-                                  PCM_IN,
+                                  PCM_IN | PCM_MONOTONIC,
                                   voice_config);
     if (adev->pcm_voice_tx != NULL && !pcm_is_ready(adev->pcm_voice_tx)) {
         ALOGE("%s: cannot open PCM voice TX stream: %s",
@@ -944,7 +945,7 @@ static int start_input_stream(struct stream_in *in)
 
     in->pcm = pcm_open(PCM_CARD,
                        PCM_DEVICE,
-                       PCM_IN,
+                       PCM_IN | PCM_MONOTONIC,
                        in->config);
     if (in->pcm && !pcm_is_ready(in->pcm)) {
         ALOGE("pcm_open() failed: %s", pcm_get_error(in->pcm));
@@ -1799,6 +1800,37 @@ static int in_remove_audio_effect(const struct audio_stream *stream __unused,
     return 0;
 }
 
+static int in_get_capture_position(const struct audio_stream_in *stream,
+                                   int64_t *frames,
+                                   int64_t *time)
+{
+    struct stream_in *in;
+    int rc = -ENOSYS;
+
+    if (stream == NULL || frames == NULL || time == NULL) {
+        return -EINVAL;
+    }
+    in = (struct stream_in *)stream;
+
+    pthread_mutex_lock(&in->lock);
+    if (in->pcm != NULL) {
+        struct timespec timestamp;
+        unsigned int avail;
+
+        rc = pcm_get_htimestamp(in->pcm, &avail, &timestamp);
+        if (rc != 0) {
+            rc = -EINVAL;
+        } else {
+            *frames = in->frames_read + avail;
+            *time = timestamp.tv_sec * 1000000000LL + timestamp.tv_nsec;
+            rc = 0;
+        }
+    }
+    pthread_mutex_unlock(&in->lock);
+
+    return rc;
+}
+
 static int adev_open_output_stream(struct audio_hw_device *dev,
                                    audio_io_handle_t handle __unused,
                                    audio_devices_t devices,
@@ -2106,6 +2138,7 @@ static int adev_open_input_stream(struct audio_hw_device *dev,
     in->stream.set_gain = in_set_gain;
     in->stream.read = in_read;
     in->stream.get_input_frames_lost = in_get_input_frames_lost;
+    in->stream.get_capture_position = in_get_capture_position;
 
     in->dev = adev;
     in->standby = true;
