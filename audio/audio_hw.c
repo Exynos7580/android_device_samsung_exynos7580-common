@@ -2063,6 +2063,8 @@ static int voice_set_volume(struct audio_hw_device *dev, float volume)
 {
     struct audio_device *adev = (struct audio_device *)dev;
 
+    ALOGT("%s: Set volume to %f\n", __func__, volume);
+
     adev->voice_volume = volume;
 
     if (adev->mode == AUDIO_MODE_IN_CALL) {
@@ -2099,6 +2101,8 @@ static int adev_set_voice_volume(struct audio_hw_device *dev, float volume)
 {
     struct audio_device *adev = (struct audio_device *)dev;
     int rc;
+
+    ALOGT("%s: Set volume to %f\n", __func__, volume);
 
     pthread_mutex_lock(&adev->lock);
     rc = voice_set_volume(dev, volume);
@@ -2142,7 +2146,7 @@ static int adev_set_mic_mute(struct audio_hw_device *dev, bool state)
     struct audio_device *adev = (struct audio_device *)dev;
     enum _MuteCondition mute_condition = state ? TX_MUTE : TX_UNMUTE;
 
-    ALOGV("*** %s: set mic mute: %d\n", __func__, state);
+    ALOGT("%s: Set mic mute: %d\n", __func__, state);
 
     pthread_mutex_lock(&adev->lock);
     if (adev->in_call) {
