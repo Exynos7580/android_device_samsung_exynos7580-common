@@ -2,6 +2,7 @@
 # Devices
 #
 /dev/mali[0-9]*              u:object_r:gpu_device:s0
+/dev/mali.*                  u:object_r:video_device:s0
 
 /dev/seiren                  u:object_r:seiren_device:s0
 
