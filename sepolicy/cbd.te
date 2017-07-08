@@ -1,0 +1,41 @@
+# modem daemon sec label
+type cbd, domain;
+type cbd_exec, exec_type, file_type;
+
+net_domain(cbd);
+init_daemon_domain(cbd);
+wakelock_use(cbd);
+
+allow cbd self:capability { dac_override setuid setgid };
+
+# FIXME neverallow rule
+# allow cbd self:capability mknod;
+allow cbd kernel:system syslog_read;
+allow cbd cgroup:dir create_dir_perms;
+
+# /dev/log/*
+allow cbd log_device:dir r_dir_perms;
+allow cbd log_device:chr_file rw_file_perms;
+# /dev/kmsg (write to kernel log)
+allow cbd kmsg_device:chr_file rw_file_perms;
+
+# /dev/umts_boot0
+allow cbd mif_device:chr_file rw_file_perms;
+# /dev/mbin0
+allow cbd emmcblk_device:blk_file r_file_perms;
+# /dev/block/mmcblk0p13
+allow cbd block_device:dir r_dir_perms;
+
+# /dev/mipi-lli/lli_control
+allow cbd sysfs_mipi_writable:file rw_file_perms;
+
+# /efs
+allow cbd efs_file:dir r_dir_perms;
+
+# /efs/nv_data.bin
+allow cbd bin_nv_data_efs_file:file rw_file_perms;
+
+# set properties on boot
+set_prop(cbd, cpboot-daemon_prop);
+set_prop(cbd, radio_prop);
+set_prop(cbd, system_prop);
