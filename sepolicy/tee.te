@@ -9,4 +9,4 @@ allow tee init:unix_stream_socket connectto;
 allow tee efs_file:dir { getattr };
 allow tee efs_file:file { getattr open read };
 
-set_prop(tee, tee_prop)
+set_prop(tee, tee_prop);
