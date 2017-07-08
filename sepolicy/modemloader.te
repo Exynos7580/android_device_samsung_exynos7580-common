@@ -3,8 +3,8 @@
 type modemloader, domain, domain_deprecated;
 type modemloader_exec, exec_type, file_type;
 
-init_daemon_domain(modemloader)
+init_daemon_domain(modemloader);
 
 allow modemloader proc:file r_file_perms;
 
-set_prop(modemloader, modemloader_prop)
+set_prop(modemloader, modemloader_prop);

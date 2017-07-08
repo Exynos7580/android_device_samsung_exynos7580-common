@@ -2,10 +2,10 @@
 type cpboot-daemon, domain, domain_deprecated;
 type cpboot-daemon_exec, exec_type, file_type;
 
-net_domain(cpboot-daemon)
-init_daemon_domain(cpboot-daemon)
-wakelock_use(cpboot-daemon)
-unix_socket_connect(cpboot-daemon, property, init)
+net_domain(cpboot-daemon);
+init_daemon_domain(cpboot-daemon);
+wakelock_use(cpboot-daemon);
+unix_socket_connect(cpboot-daemon, property, init);
 
 allow cpboot-daemon self:capability { dac_override setuid setgid };
 
@@ -45,6 +45,6 @@ allow cpboot-daemon sysfs:file r_file_perms;
 allow cpboot-daemon proc:file r_file_perms;
 
 # set properties on boot
-set_prop(cpboot-daemon, cpboot-daemon_prop)
-set_prop(cpboot-daemon, radio_prop)
-set_prop(cpboot-daemon, system_prop)
+set_prop(cpboot-daemon, cpboot-daemon_prop);
+set_prop(cpboot-daemon, radio_prop);
+set_prop(cpboot-daemon, system_prop);

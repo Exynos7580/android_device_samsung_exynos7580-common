@@ -1,0 +1,4 @@
+allow fingerprintd tee_device:chr_file { open read write ioctl };
+allow fingerprintd secmem_device:chr_file { open read write ioctl };
+allow fingerprintd vfs_device:chr_file { open read write ioctl };
+allow fingerprintd fingerprint_data_file:file rw_file_perms;
