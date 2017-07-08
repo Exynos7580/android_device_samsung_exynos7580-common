@@ -2,3 +2,6 @@
 # /dev/m2m1shot_jpeg
 allow cameraserver camera_device:file { read open getattr };
 allow cameraserver camera_device:chr_file { read open getattr };
+
+allow camera_device sysfs:filesystem associate;
+allow cameraserver sysfs:file { read getattr open };

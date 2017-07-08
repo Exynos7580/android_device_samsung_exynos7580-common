@@ -13,6 +13,10 @@
 
 /dev/batch_io                u:object_r:batch_io_device:s0
 
+/dev/bbd_control             u:object_r:bbd_device:s0
+/dev/bbd_patch               u:object_r:bbd_device:s0
+/dev/bbd_sensor              u:object_r:bbd_device:s0
+
 /dev/s5p-smem                u:object_r:secmem_device:s0
 /dev/mobicore                u:object_r:tee_device:s0
 /dev/mobicore-user           u:object_r:tee_device:s0
@@ -29,27 +33,24 @@
 /dev/ehci_power              u:object_r:mif_device:s0
 /dev/mipi-lli/lli_control    u:object_r:mif_device:s0
 
-/dev/ttySAC[0-9]*            u:object_r:gps_device:s0
+/dev/ttyBCM[0-9]*            u:object_r:bbd_device:s0
+/dev/ttySAC[0-9]*            u:object_r:uart_device:s0
 
 /dev/block/mmcblk0p[0-9]*    u:object_r:emmcblk_device:s0
 
 /dev/block/platform/13540000.dwmmc0/by-name/EFS  u:object_r:efs_block_device:s0
 /dev/block/platform/13540000.dwmmc0/by-name/CACHE    u:object_r:cache_block_device:s0
 /dev/block/platform/13540000.dwmmc0/by-name/USERDATA    u:object_r:userdata_block_device:s0
+/dev/block/platform/.+/by-name/(radio|RADIO)?   u:object_r:radio_block_device:s0
 
 /dev/rfkill                  u:object_r:rfkill_device:s0
 
 ####################################
 # efs files
-/efs/FactoryApp(/.*)?        u:object_r:app_efs_file:s0
-/efs/FactoryApp/baro_delta   u:object_r:baro_delta_factoryapp_efs_file:s0
-/efs/FactoryApp/factorymode  u:object_r:factorymode_factoryapp_efs_file:s0
-/efs/FactoryApp/fdata        u:object_r:radio_factoryapp_efs_file:s0
-/efs/FactoryApp/hist_nv      u:object_r:radio_factoryapp_efs_file:s0
-/efs/FactoryApp/test_nv      u:object_r:radio_factoryapp_efs_file:s0
-
 /efs/bluetooth(/.*)?         u:object_r:bluetooth_efs_file:s0
+/efs/Battery(/.*)?           u:object_r:battery_efs_file:s0
 /efs/drm(/.*)?               u:object_r:drm_efs_file:s0
+/efs/FactoryApp(/.*)?        u:object_r:app_efs_file:s0
 /efs/gyro_cal_data           u:object_r:sensor_efs_file:s0
 /efs/h2k.dat                 u:object_r:cpk_efs_file:s0
 /efs/imei(/.*)?              u:object_r:imei_efs_file:s0
@@ -57,6 +58,7 @@
 /efs/nv.log                  u:object_r:nv_log_efs_file:s0
 /efs/prov(/.*)?              u:object_r:prov_efs_file:s0
 /efs/prov_data(/.*)?         u:object_r:prov_efs_file:s0
+/efs/sec_efs(/.*)?           u:object_r:sec_efs_file:s0
 /efs/wifi(/.*)?              u:object_r:wifi_efs_file:s0
 /efs/wv.keys                 u:object_r:cpk_efs_file:s0
 
@@ -68,22 +70,14 @@
 
 /data/misc/radio(/.*)?       u:object_r:radio_data_file:s0
 
-# fingerprint
-/data/biometrics(/.*)?       u:object_r:fingerprint_data_file:s0
+# biometrics
+/data/biometrics(/.*)?	     u:object_r:biometrics_data_file:s0
 
 # gps
-/data/system/gps/\.flp\.interface\.pipe\.to_gpsd     u:object_r:gps_data_file:s0
-/data/system/gps/\.gps\.interface\.pipe\.to_gpsd     u:object_r:gps_data_file:s0
-/data/system/gps/\.gps\.interface\.pipe\.to_jni      u:object_r:gps_data_file:s0
-/data/system/gps/\.gpsd\.lock                        u:object_r:gps_data_file:s0
-/data/system/gps/gldata\.sto                         u:object_r:gps_data_file:s0
-/data/system/gps/alt\.dat                            u:object_r:gps_data_file:s0
-/data/system/gps/lto2\.dat                           u:object_r:gps_data_file:s0
-/data/system/gps/ltoStatus\.txt                      u:object_r:gps_data_file:s0
+/data/system/gps(/.*)?       u:object_r:gps_data_file:s0
 
-/data/gps/ctrlpipe                                   u:object_r:gps_data_file:s0
-/data/gps/.gpslogd.pipe                              u:object_r:gps_data_file:s0
-/data/gps/nmeapipe                                   u:object_r:gps_data_file:s0
+# tee
+/data/misc/mcRegistry(/.*)?  u:object_r:mobicore_data_file:s0
 
 ####################################
 # sysfs files
@@ -106,6 +100,8 @@
 
 # rild
 /sys/devices/virtual/misc/multipdp(/.*)     u:object_r:sysfs_multipdp_writable:s0
+/dev/socket/rild2                           u:object_r:rild_socket:s0
+/dev/socket/rild-debug[0-9]*                u:object_r:rild_debug_socket:s0
 
 # mDNIe
 /sys/devices/[0-9]*.decon_fb/lcd/panel/mdnie/mode       u:object_r:sysfs_mdnie_writable:s0

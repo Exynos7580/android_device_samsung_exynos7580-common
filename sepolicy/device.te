@@ -1,6 +1,8 @@
 # /dev/ttySAC3
 type bluetooth_device, dev_type;
 
+type bbd_device, dev_type;
+
 # /dev/block/mmcblk0p[0-9] (/dev/mbin0)
 type emmcblk_device, file_type;
 
@@ -18,3 +20,11 @@ type secmem_device, dev_type;
 
 # efs
 type efs_block_device, dev_type;
+
+type radio_block_device, dev_type;
+
+type uart_device, dev_type;
+
+type vfs_device, dev_type;
+
+type batch_io_device, dev_type;

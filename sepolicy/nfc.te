@@ -1,1 +1,1 @@
-allow nfc unlabeled:dir search;
+allow nfc efs_file:dir search;

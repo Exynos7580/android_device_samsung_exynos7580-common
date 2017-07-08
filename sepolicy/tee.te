@@ -9,4 +9,9 @@ allow tee init:unix_stream_socket connectto;
 allow tee efs_file:dir { getattr };
 allow tee efs_file:file { getattr open read };
 
-set_prop(tee, tee_prop);
+allow tee efs_file:dir search;
+allow tee system_prop:property_service set;
+
+allow tee prov_efs_file:dir search;
+
+allow tee mobicore_data_file:dir { write search };

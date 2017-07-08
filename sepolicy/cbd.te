@@ -35,6 +35,11 @@ allow cbd efs_file:dir r_dir_perms;
 # /efs/nv_data.bin
 allow cbd bin_nv_data_efs_file:file rw_file_perms;
 
+allow cbd proc:file { read getattr open };
+allow cbd radio_block_device:blk_file { read open };
+allow cbd rootfs:file { entrypoint read };
+allow cbd sysfs:file { read open };
+
 # set properties on boot
 set_prop(cbd, cpboot-daemon_prop);
 set_prop(cbd, radio_prop);

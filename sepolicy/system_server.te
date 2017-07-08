@@ -33,5 +33,8 @@ allow system_server sysfs_mdnie_writable:dir rw_dir_perms;
 allow system_server sysfs_mdnie_writable:file rw_file_perms;
 
 # app efs
-allow system_server app_efs_file:file read;
+allow system_server app_efs_file:file { read open };
 allow system_server batch_io_device:chr_file { open read write ioctl };
+allow system_server app_efs_file:dir search;
+
+allow system_server debugfs:dir { read open };
