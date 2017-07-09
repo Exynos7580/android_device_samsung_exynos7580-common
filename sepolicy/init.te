@@ -30,3 +30,6 @@ allow init system_data_file:fifo_file write;
 allow init camera_device:file { relabelto setattr };
 allow init debugfs:file write;
 allow init efs_file:dir mounton;
+
+# rild-cas denial
+allow init socket_device:sock_file create_file_perms;
