@@ -2,4 +2,8 @@ type sswap, domain;
 
 type sswap_device, dev_type;
 
-allow sswap sswap_device:blk_file { read write open };                                                                                                                                allow sswap rootfs:file entrypoint;                                                                                                                                                   allow sswap sysfs:file write;
+allow sswap sswap_device:blk_file { read write open };
+allow sswap rootfs:file entrypoint;
+allow sswap sysfs:file write;
+allow sswap block_device:dir search;
+allow sswap self:capability sys_admin;
