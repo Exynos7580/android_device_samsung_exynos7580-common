@@ -36,6 +36,9 @@
 /dev/ttyBCM[0-9]*            u:object_r:bbd_device:s0
 /dev/ttySAC[0-9]*            u:object_r:uart_device:s0
 
+#samsung's sswap
+/dev/block/vnswap0           u:object_r:sswap_device:s0
+
 /dev/block/mmcblk0p[0-9]*    u:object_r:emmcblk_device:s0
 
 /dev/block/platform/13540000.dwmmc0/by-name/EFS  u:object_r:efs_block_device:s0
