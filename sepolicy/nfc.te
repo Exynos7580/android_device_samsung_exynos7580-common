@@ -1,1 +1,3 @@
 allow nfc efs_file:dir search;
+allow nfc nfc_data_file:dir { search write add_name };
+allow nfc nfc_data_file:file { create open write read };
