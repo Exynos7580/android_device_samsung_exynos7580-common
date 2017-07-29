@@ -7,6 +7,11 @@ allow mediaserver efs_file:file r_file_perms;
 # /dev/m2m1shot_jpeg
 allow mediaserver camera_device:chr_file { read write open getattr ioctl };
 
+#============= mediaserver ==============
+allow mediaserver cameraproxy_service:service_manager find;
+allow mediaserver mediaserver_tmpfs:file { read write };
+allow mediaserver system_data_file:sock_file write; 
+
 # Snap permissions
 allow mediaserver sensorservice_service:service_manager { find };
 allow mediaserver system_server:unix_stream_socket { read write };
