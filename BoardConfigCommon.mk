@@ -95,6 +95,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Renderscript
 BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
+BOARD_OVERRIDE_RS_CPU_VARIANT_64 := cortex-a53
 
 # (G)SCALER
 BOARD_USES_SCALER := true
@@ -154,10 +155,6 @@ endif
 
 # CPUsets
 ENABLE_CPUSETS := true
-
-# Renderscript
-BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
-BOARD_OVERRIDE_RS_CPU_VARIANT_64 := cortex-a53
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
