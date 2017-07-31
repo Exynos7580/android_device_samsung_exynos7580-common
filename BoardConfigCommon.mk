@@ -86,7 +86,7 @@ USE_OPENGL_RENDERER := true
 # Use Exynos BGRA mixer
 BOARD_USE_BGRA_8888 := true
 
-+### SURFACEFLINGER
+### SURFACEFLINGER
 # frameworks/native/services/surfaceflinger
 # Android keeps 2 surface buffers at all time in case the hwcomposer
 # misses the time to swap buffers (in cases where it takes 16ms or
