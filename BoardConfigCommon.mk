@@ -26,9 +26,11 @@ TARGET_BOARD_PLATFORM := exynos5
 TARGET_SOC := exynos7580
 TARGET_SLSI_VARIANT := cm
 
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := universal7580
-TARGET_NO_BOOTLOADER := true
 
 # Architecture
 FORCE_32_BIT := true
@@ -79,8 +81,15 @@ BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Graphics
-BOARD_USE_BGRA_8888 := true
 USE_OPENGL_RENDERER := true
+
+# Use Exynos BGRA mixer
+BOARD_USE_BGRA_8888 := true
+
+# frameworks/native/services/surfaceflinger
+# Android keeps 2 surface buffers at all time in case the hwcomposer
+# misses the time to swap buffers (in cases where it takes 16ms or
+# less). Use 5 to avoid timing issues.
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
 
 # Shader cache config options
@@ -140,6 +149,7 @@ BOARD_USE_VP8ENC_SUPPORT := true
 #TARGET_POWERHAL_VARIANT := samsung
 
 # Kernel
+TARGET_LINUX_KERNEL_VERSION := 3.10
 TARGET_KERNEL_ARCH := arm64
 ifeq ($(FORCE_32_BIT),true)
 TARGET_KERNEL_HEADER_ARCH := arm
@@ -174,8 +184,10 @@ BOARD_HAS_DOWNLOAD_MODE := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
-BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
+
+# LED
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
 # SELinux
 BOARD_SEPOLICY_DIRS := \
@@ -188,7 +200,6 @@ BOARD_SECCOMP_POLICY += device/samsung/exynos7580-common/seccomp
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # Wifi
-BOARD_HAVE_SAMSUNG_WIFI          := true
 BOARD_WLAN_DEVICE                := bcmdhd
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
@@ -196,7 +207,14 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
+WIFI_DRIVER_NVRAM_PATH_PARAM     := "/sys/module/dhd/parameters/nvram_path"
+WIFI_DRIVER_NVRAM_PATH           := "/system/etc/wifi/nvram_net.txt"
 WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_BAND                        := 802_11_ABG
+# MACLOADER
+BOARD_HAVE_SAMSUNG_WIFI          := true
 
+### NFC
+BOARD_NFC_HAL_SUFFIX := $(TARGET_BOOTLOADER_BOARD_NAME)
+BOARD_HAVE_NFC := true
