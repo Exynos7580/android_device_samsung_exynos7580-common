@@ -82,6 +82,7 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
+TARGET_OMX_LEGACY_RESCALING := true
 
 # Use Exynos BGRA mixer
 BOARD_USE_BGRA_8888 := true
