@@ -36,3 +36,6 @@ allow init socket_device:sock_file create_file_perms;
 
 # samsung's sswap
 allow init sswap:process { transition siginh rlimitinh };
+
+# gpsd
+allow init gpsd:unix_stream_socket { connectto };
