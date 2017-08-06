@@ -10,5 +10,5 @@ allow sswap self:capability sys_admin;
 
 allow sswap proc:file { open getattr };
 allow sswap proc_meminfo:file { open read getattr };
-allow sswap property_sockets:sock_file write;
+allow sswap property_socket:sock_file write;
 allow sswap init:unix_stream_socket connectto;
