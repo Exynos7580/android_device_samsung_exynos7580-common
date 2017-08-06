@@ -6,6 +6,8 @@ allow init emmcblk_device:blk_file rw_file_perms;
 
 allow init block_device:lnk_file { setattr };
 allow init tmpfs:lnk_file create_file_perms;
+allow init init:capability dac_read_search;
+allow init bin_nv_data_efs_file:file ioctl;
 
 # netlink
 allow init init:netlink_route_socket read;
