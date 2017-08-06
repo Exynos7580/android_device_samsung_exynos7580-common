@@ -6,6 +6,8 @@ unix_socket_connect(gpsd, property, rild);
 
 allow gpsd system_server:unix_stream_socket { read write setopt };
 
+allow gpsd init:unix_stream_socket connectto;
+
 binder_call(gpsd, system_server);
 binder_use(gpsd);
 
@@ -20,3 +22,4 @@ allow gpsd self:netlink_kobject_uevent_socket { read bind create setopt };
 allow gpsd sysfs_wake_lock:file rw_file_perms;
 
 allow gpsd sensorservice_service:service_manager { find };
+
