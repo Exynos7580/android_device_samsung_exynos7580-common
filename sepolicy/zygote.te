@@ -1,2 +1,2 @@
 allow zygote self:capability sys_nice;
-allow sygote debugfs:file { write open getattr };
+allow zygote debugfs:file { write open getattr };
