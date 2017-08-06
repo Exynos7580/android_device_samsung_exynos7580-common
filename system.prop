@@ -18,3 +18,7 @@ ro.arch=exynos7580
 
 # Strict Mode
 persist.sys.strictmode.disable=true
+
+# Samsung OEM
+ro.telephony.samsung.realcall=true
+ro.multisim.set_audio_params=true
