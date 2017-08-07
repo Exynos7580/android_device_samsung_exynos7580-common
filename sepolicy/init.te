@@ -6,6 +6,11 @@ allow init emmcblk_device:blk_file rw_file_perms;
 
 allow init block_device:lnk_file { setattr };
 allow init tmpfs:lnk_file create_file_perms;
+allow init init:capability dac_read_search;
+allow init bin_nv_data_efs_file:file ioctl;
+
+# netlink
+allow init init:netlink_route_socket read;
 
 # /data
 allow init sdcardd_exec:file r_file_perms;
@@ -33,6 +38,8 @@ allow init efs_file:dir mounton;
 
 # rild-cas denial
 allow init socket_device:sock_file create_file_perms;
+allow init radio_data_file:lnk_file read;
+allow init radio_data_file:file lock;
 
 # samsung's sswap
 allow init sswap:process { transition siginh rlimitinh };

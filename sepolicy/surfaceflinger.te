@@ -1,0 +1,2 @@
+# SurfaceFlinger Sepolicy
+# allow surfaceflinger debugfs:file { write open };

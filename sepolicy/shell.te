@@ -1,0 +1,5 @@
+# Shell Sepolicy
+allow shell init_exec:file getattr;
+allow shell rootfs:file getattr;
+allow shell efs_file:dir getattr;
+allow shell sec_efs_file:dir getattr;

@@ -29,8 +29,3 @@ allow rild mediaserver:file { open read getattr };
 allow rild radio_data_file:dir rw_dir_perms;
 allow rild radio_data_file:file create_file_perms;
 
-# denials
-allow rild init:netlink_route_socket read;
-allow rild init:capability dac_read_search;
-allow rild bin_nv_data_efs_file:file ioctl;
-
