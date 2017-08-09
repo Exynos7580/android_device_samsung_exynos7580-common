@@ -40,6 +40,11 @@ allow init efs_file:dir mounton;
 allow init socket_device:sock_file create_file_perms;
 allow init radio_data_file:lnk_file read;
 allow init radio_data_file:file lock;
+allow init rild_exec:file execute_no_trans;
 
 # samsung's sswap
-allow init sswap:process { transition siginh rlimitinh };
+allow init sswap:process { transition siginh rlimitinh noatsecure };
+
+# camera denials
+allow init camera_device:dir relabelto;
+allow init camera_device:lnk_file relabelto;
