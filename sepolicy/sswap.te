@@ -3,12 +3,12 @@ type sswap, domain;
 type sswap_device, dev_type;
 
 allow sswap sswap_device:blk_file { read write open };
-allow sswap rootfs:file entrypoint;
+allow sswap rootfs:file { entrypoint read };
 allow sswap sysfs:file { write open };
 allow sswap block_device:dir search;
 allow sswap self:capability sys_admin;
 
-allow sswap proc:file { open getattr };
+allow sswap proc:file { open getattr read };
 allow sswap proc_meminfo:file { open read getattr };
 allow sswap property_socket:sock_file write;
 allow sswap init:unix_stream_socket connectto;
