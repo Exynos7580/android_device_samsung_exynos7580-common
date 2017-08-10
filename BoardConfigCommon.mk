@@ -33,7 +33,9 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOOTLOADER_BOARD_NAME := universal7580
 
 # Architecture
+ifeq ($(FORCE_32_BIT),)
 FORCE_32_BIT := true
+endif
 
 ifneq ($(FORCE_32_BIT),true)
 TARGET_BOARD_SUFFIX := _64
