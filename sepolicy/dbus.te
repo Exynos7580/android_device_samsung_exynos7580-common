@@ -1,0 +1,3 @@
+# This seems to prevent linker warnings like:
+# linker  : readlink('/proc/self/fd/X') failed: Permission denied [fd=X]
+allow dbus_daemon proc:dir search;
