@@ -1,0 +1,2 @@
+# Allow /proc.
+allow $1 proc:dir search;
