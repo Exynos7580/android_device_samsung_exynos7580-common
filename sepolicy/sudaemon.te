@@ -1,0 +1,4 @@
+allow sudaemon userinit_prop:file { open getattr };
+allow sudaemon adbsecure_prop:file { open getattr };
+allow sudaemon recovery_prop:file { open getattr };
+allow sudaemon adbtcp_prop:file { open getattr };
