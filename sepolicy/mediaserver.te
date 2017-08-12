@@ -15,3 +15,7 @@ allow mediaserver system_data_file:sock_file write;
 # Snap permissions
 allow mediaserver sensorservice_service:service_manager { find };
 allow mediaserver system_server:unix_stream_socket { read write };
+
+# Camera Device
+allow mediaserver camera_device:dir search;
+allow mediaserver camera_device:file { read open getattr
