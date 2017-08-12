@@ -1,0 +1,8 @@
+allow sysinit sysfs_lowmemorykiller:file { write open };
+allow sysinit proc:file { write open };
+allow sysinit sysfs:dir { read open };
+allow sysinit system_data_file:file { getattr read open };
+allow sysinit efs_file:dir getattr;
+allow sysinit cache_file:dir getattr;
+allow sysinit unlabeled:dir getattr;
+allow sysinit sec_efs_file:dir getattr;
