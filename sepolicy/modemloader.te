@@ -1,7 +1,7 @@
 #### modemloader
 #
-type modemloader, domain, domain_deprecated;
-type modemloader_exec, exec_type, file_type;
+#type modemloader, domain, domain_deprecated;
+#type modemloader_exec, exec_type, file_type;
 
 init_daemon_domain(modemloader);
 
