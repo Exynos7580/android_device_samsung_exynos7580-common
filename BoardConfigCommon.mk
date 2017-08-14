@@ -189,7 +189,7 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 endif
 
 # CPUsets
-ENABLE_CPUSETS := true
+ENABLE_CPUSETS := false
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
