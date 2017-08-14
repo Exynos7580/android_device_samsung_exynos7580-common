@@ -1,7 +1,6 @@
 allow untrusted_app battery_service:service_manager find;
 allow untrusted_app device:dir read;
 allow untrusted_app untrusted_app:udp_socket ioctl;
-allow untrusted_app app_data_file:dir search;
 
 # These are safe for an untrusted_app -- they are the external SD card
 allow untrusted_app fuseblk:dir search;

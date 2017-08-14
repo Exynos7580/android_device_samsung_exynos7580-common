@@ -23,3 +23,4 @@ allow gpsd sysfs_wake_lock:file rw_file_perms;
 
 allow gpsd sensorservice_service:service_manager { find };
 
+allow gpsd uart_device:chr_file { read write open ioctl getattr };
