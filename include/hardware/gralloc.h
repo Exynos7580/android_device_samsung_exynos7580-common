@@ -157,6 +157,7 @@ enum {
     GRALLOC_USAGE_HWC_HWOVERLAY         = 0x20000000,
 
     GRALLOC_USAGE_VIDEO_EXT             = 0x200000,
+    GRALLOC_USAGE_GPU_BUFFER            = 0x00800000,
 #endif
 };
 
