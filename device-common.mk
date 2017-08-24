@@ -58,7 +58,12 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libxml2
+    libxml2 \
+    Camera2
+
+# STLport
+PRODUCT_PACKAGES += \
+    libstlport
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
