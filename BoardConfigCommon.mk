@@ -214,9 +214,6 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
-# Needed for blobs
-BOARD_GLOBAL_CFLAGS += -DSAMSUNG_DVFS
-
 # LED
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
