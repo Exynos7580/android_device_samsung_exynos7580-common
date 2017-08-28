@@ -77,14 +77,23 @@ TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # Camera
+BOARD_NEEDS_MEMORYHEAPION := true
+TARGET_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
+TARGET_GLOBAL_CFLAGS += -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
+TARGET_GLOBAL_CFLAGS += -DUSE_NATIVE_SEC_NV12TILED
 BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+
+# Camera Application
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_CAMERA_APP := Camera2
 
 # Graphics
 USE_OPENGL_RENDERER := true
 TARGET_OMX_LEGACY_RESCALING := true
+
+# Screen casting
+BOARD_USES_WFD := true
 
 # Use Exynos BGRA mixer
 BOARD_USE_BGRA_8888 := true
@@ -94,7 +103,7 @@ BOARD_USE_BGRA_8888 := true
 # Android keeps 2 surface buffers at all time in case the hwcomposer
 # misses the time to swap buffers (in cases where it takes 16ms or
 # less). Use 5 to avoid timing issues.
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 # frameworks/native/services/surfaceflinger
 # Set the phase offset of the system's vsync event relative to the hardware
 # vsync. The system's vsync event drives Choreographer and SurfaceFlinger's
@@ -136,6 +145,7 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_64 := cortex-a53
 # (G)SCALER
 BOARD_USES_SCALER := true
 BOARD_USES_DT := true
+BOARD_USES_DT_SHORTNAME := true
 
 # Hardware
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
@@ -171,6 +181,11 @@ BOARD_USE_CSC_HW := false
 BOARD_USE_QOS_CTRL := false
 BOARD_USE_S3D_SUPPORT := true
 BOARD_USE_VP8ENC_SUPPORT := true
+
+# HEVC Support in libvideocodec
+BOARD_USE_HEVC_HWIP := true
+BOARD_USE_ENCODER_RGBINPUT_SUPPORT := true
+BOARD_USE_HEVCDEC_SUPPORT := true
 
 # PowerHAL
 #TARGET_POWERHAL_VARIANT := samsung

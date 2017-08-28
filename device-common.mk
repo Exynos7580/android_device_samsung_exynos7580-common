@@ -61,6 +61,31 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Camera2
 
+# Media OMX
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    libExynosOMX_Core
+
+# Video Decoders
+PRODUCT_PACKAGES += \
+    libOMX.Exynos.AVC.Decoder \
+    libOMX.Exynos.HEVC.Decoder \
+    libOMX.Exynos.MPEG4.Decoder \
+    libOMX.Exynos.VP8.Decoder \
+    libOMX.Exynos.WMV.Decoder
+
+# Video Encoders
+PRODUCT_PACKAGES += \
+    libOMX.Exynos.AVC.Encoder \
+    libOMX.Exynos.MPEG4.Encoder \
+    libOMX.Exynos.VP8.Encoder
+
+# Audio Decoders
+PRODUCT_PACKAGES += \
+    libOMX.Exynos.AAC.Decoder \
+    libOMX.Exynos.MP3.Decoder \
+    libOMX.Exynos.FLAC.Decoder
+
 # STLport
 PRODUCT_PACKAGES += \
     libstlport
@@ -69,6 +94,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
+
+# MTP
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
 
 # Graphics
 PRODUCT_PACKAGES += \
