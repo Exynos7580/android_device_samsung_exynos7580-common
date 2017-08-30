@@ -59,22 +59,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libxml2 \
-    Camera2
-
-# Media OMX
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    libExynosOMX_Core
-
-# Video Decoders
-PRODUCT_PACKAGES += \
-    libOMX.Exynos.HEVC.Decoder
-
-# Audio Decoders
-PRODUCT_PACKAGES += \
-    libOMX.Exynos.AAC.Decoder \
-    libOMX.Exynos.MP3.Decoder \
-    libOMX.Exynos.FLAC.Decoder
+    Camera2 \
 
 # STLport
 PRODUCT_PACKAGES += \

@@ -76,16 +76,9 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # Camera
-BOARD_NEEDS_MEMORYHEAPION := true
-TARGET_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
-TARGET_GLOBAL_CFLAGS += -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
-TARGET_GLOBAL_CFLAGS += -DUSE_NATIVE_SEC_NV12TILED
 BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-
-# Camera Application
-USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_CAMERA_APP := Camera2
+BOARD_USE_H264_PREPEND_SPS_PPS := false
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -101,7 +94,7 @@ BOARD_USE_BGRA_8888 := true
 # frameworks/native/services/surfaceflinger
 # Android keeps 2 surface buffers at all time in case the hwcomposer
 # misses the time to swap buffers (in cases where it takes 16ms or
-# less). Use 5 to avoid timing issues.
+# less). Use 3 to avoid this issue and get better battery life
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 # frameworks/native/services/surfaceflinger
 # Set the phase offset of the system's vsync event relative to the hardware
