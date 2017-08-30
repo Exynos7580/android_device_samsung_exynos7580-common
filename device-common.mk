@@ -59,7 +59,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libxml2 \
-    Camera2 \
+    Camera2
 
 # STLport
 PRODUCT_PACKAGES += \
