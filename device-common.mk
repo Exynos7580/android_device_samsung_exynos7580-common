@@ -118,7 +118,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
-
 # Bluetooth workaround:
 # The new CAF code defaults to MCT HAL, but we
 # need the old H4 HAL for our Broadcom WiFi.
