@@ -3,4 +3,5 @@
 ####################
 
 PRODUCT_PACKAGES += \
-    hwcomposer.exynos5
+    hwcomposer.exynos5 \
+    gralloc.exynos5
