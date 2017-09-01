@@ -4,4 +4,4 @@
 
 PRODUCT_PACKAGES += \
     libxml2 \
-    Camera2
+    Snap
