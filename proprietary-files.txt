@@ -13,8 +13,6 @@ lib/omx/libOMX.Exynos.MPEG4.Encoder.so
 lib/omx/libOMX.Exynos.VP8.Decoder.so
 lib/omx/libOMX.Exynos.VP8.Encoder.so
 lib/omx/libOMX.Exynos.WMV.Decoder.so
-lib/libExynosOMX_Core.so
-lib/libExynosOMX_Resourcemanager.so
 
 ### Widevine
 vendor/lib/mediadrm/libwvdrmengine.so
