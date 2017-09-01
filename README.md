@@ -7,11 +7,3 @@ Copyright (C) 2016-2017 Apavayan Sinha <info@apavayan.com>
  You may obtain a copy of the License at
 
       http://www.apache.org/licenses/LICENSE-2.0
-
-
-
-TODO:
------
- - HWC VSync
- - Figure Out Incoming Calls
- - Sepolicy needs to be fixed
