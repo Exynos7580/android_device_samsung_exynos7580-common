@@ -8,7 +8,7 @@ PRODUCT_PACKAGES += \
     macloader \
     wifiloader \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
     ebtables \
- 	ethertypes \
- 	libebtc
+    ethertypes \
+    libebtc
