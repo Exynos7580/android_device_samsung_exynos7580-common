@@ -9,3 +9,6 @@ PRODUCT_PACKAGES += \
     wifiloader \
     wpa_supplicant \
     wpa_supplicant.conf
+    ebtables \
+ 	ethertypes \
+ 	libebtc
