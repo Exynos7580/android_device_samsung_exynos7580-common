@@ -20,18 +20,18 @@ on init
 	write /proc/sys/kernel/sched_rt_period_us 1000000
 
 on boot
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 20000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 900000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 89
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 75 1200000:85
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 39000 1200000:19000
+    write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/timer_slack 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/hispeed_freq 900000
+    write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/go_hispeed_load 89
+    write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/target_loads 75 1200000:85
+    write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/above_hispeed_delay 39000 1200000:19000
 
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 20000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 900000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 89
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads 75 1200000:85
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 39000 1200000:19000
+    write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/timer_slack 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/hispeed_freq 900000
+    write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/go_hispeed_load 89
+    write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/target_loads 75 1200000:85
+    write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/above_hispeed_delay 39000 1200000:19000
