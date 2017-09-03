@@ -355,7 +355,7 @@ static int get_input_source_id(audio_source_t source, bool wb_amr)
         case AUDIO_SOURCE_VOICE_RECOGNITION:
             return IN_SOURCE_VOICE_RECOGNITION;
         case AUDIO_SOURCE_VOICE_COMMUNICATION:
-            return IN_SOURCE_MIC;
+            return IN_SOURCE_VOICE_COMMUNICATION;
         case AUDIO_SOURCE_VOICE_CALL:
             if (wb_amr) {
                 return IN_SOURCE_VOICE_CALL_WB;
