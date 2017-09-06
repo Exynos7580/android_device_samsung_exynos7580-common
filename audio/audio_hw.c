@@ -22,7 +22,7 @@
 
 #define LOG_TAG "audio_hw_primary"
 #define LOG_NDEBUG 0
-//#define ALOG_TRACE 1
+#define ALOG_TRACE 1
 
 #include <errno.h>
 #include <pthread.h>
