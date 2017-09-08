@@ -1,24 +1,3 @@
-on init
-	write /proc/sys/vm/oom_kill_allocating_task 0
-	write /proc/sys/vm/panic_on_oom 0
-	write /proc/sys/vm/laptop_mode 5
-	write /proc/sys/vm/dirty_ratio 90
-	write /proc/sys/vm/dirty_background_ratio 80
-	write /proc/sys/vm/overcommit_memory 1
-	write /proc/sys/vm/block_dump 0
-	write /proc/sys/fs/nr_open 105396
-	write /proc/sys/fs/inotify/max_queued_events 32000
-	write /proc/sys/fs/inotify/max_user_instances 256
-	write /proc/sys/fs/inotify/max_user_watches 10240
-	write /proc/sys/fs/file-max 165164
-	write /proc/sys/kernel/panic_on_oops 1
-	write /proc/sys/kernel/panic 5
-	write /proc/sys/kernel/sched_latency_ns 18000000
-	write /proc/sys/kernel/sched_min_granularity_ns 1500000
-	write /proc/sys/kernel/sched_wakeup_granularity_ns 3000000
-	write /proc/sys/kernel/sched_rt_runtime_us "-1"
-	write /proc/sys/kernel/sched_rt_period_us 1000000
-
 on boot
     write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/timer_rate 20000
     write /sys/devices/system/cpu/cpu0/cpufreq/cafactive/timer_slack 20000
