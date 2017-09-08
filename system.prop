@@ -5,8 +5,10 @@ audio_hal.disable_two_mic=true
 # Display
 ro.opengles.version=196609
 
-# Exynos
+# HWC
 debug.hwc.force_gpu=1
+debug.hwc.otf=1
+debug.hwc.winupdate=1
 
 # Wifi
 wifi.interface=wlan0
