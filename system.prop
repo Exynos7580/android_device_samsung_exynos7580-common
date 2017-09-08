@@ -10,6 +10,9 @@ debug.hwc.force_gpu=1
 debug.hwc.otf=1
 debug.hwc.winupdate=1
 
+# Zygote
+ro.zygote.disable_gl_preload=1
+
 # Wifi
 wifi.interface=wlan0
 net.tethering.noprovisioning=true
