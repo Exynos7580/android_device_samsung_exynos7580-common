@@ -15,7 +15,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 BOARD_USES_WFD := true
 
 # BGRA mixing
-BOARD_USE_BGRA_8888 := true
+BOARD_USE_BGRA_8888_FB := true
 
 # Virtual display
 BOARD_USES_VIRTUAL_DISPLAY := true
