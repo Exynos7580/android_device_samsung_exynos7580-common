@@ -3,6 +3,4 @@
 ####################
 
 PRODUCT_PACKAGES += \
-    hwcomposer.exynos5 \
-    libion \
-    libfimg
+	hwcomposer.exynos5
