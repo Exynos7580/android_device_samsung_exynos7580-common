@@ -36,3 +36,7 @@ on boot
     write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/go_hispeed_load 89
     write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/target_loads 75 1200000:85
     write /sys/devices/system/cpu/cpu4/cpufreq/cafactive/above_hispeed_delay 39000 1200000:19000
+
+# Kernel Workqueue
+    chown system system /sys/module/workqueue/parameters/power_efficient
+    chmod 0664 /sys/module/workqueue/parameters/power_efficient
