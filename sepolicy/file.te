@@ -22,3 +22,10 @@ allow sysfs_type tmpfs:filesystem associate;
 type biometrics_data_file, file_type;
 
 type mobicore_data_file, file_type;
+
+####################################
+# Exynos7580 Power HAL
+#
+type power_hal_devfs, dev_type;
+type power_hal_sysfs, fs_type, sysfs_type, mlstrustedobject;
+type power_hal_data_files, file_type;
