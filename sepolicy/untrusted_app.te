@@ -11,3 +11,4 @@ allow untrusted_app vfat:dir create_dir_perms;
 allow untrusted_app vfat:file create_file_perms;
 allow untrusted_app sdcard_posix:dir create_dir_perms;
 allow untrusted_app sdcard_posix:file create_file_perms;
+allow untrusted_app app_data_file:dir open;

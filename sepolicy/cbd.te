@@ -39,6 +39,7 @@ allow cbd proc:file { read getattr open };
 allow cbd radio_block_device:blk_file { read open };
 allow cbd rootfs:file { entrypoint read };
 allow cbd sysfs:file { read open };
+allow cbd system_file:file entrypoint;
 
 # set properties on boot
 set_prop(cbd, cpboot-daemon_prop);
