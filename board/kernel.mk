@@ -1,5 +1,5 @@
 ####################
-# Kernel		   #
+# Kernel           #
 ####################
 
 # Kernel configuration
@@ -16,3 +16,6 @@ BOARD_KERNEL_PAGESIZE := 2048
 ifneq ($(FORCE_32_BIT),true)
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 endif
+
+# CPUSETS
+ENABLE_CPUSETS := true
