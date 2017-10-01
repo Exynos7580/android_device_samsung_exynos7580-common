@@ -1,21 +1,22 @@
 # Audio
 af.fast_track_multiplier=1
 audio_hal.disable_two_mic=true
+audio_hal.force_voice_config=wide
+
+# GMS
+ro.product.first_api_level=22
 
 # Display
 ro.opengles.version=196610
+debug.composition.type=gpu
+video.accelerate.hw=1
 
 # HWC
-# debug.composition.type=gpu
-# debug.hwc.otf=1
-# debug.hwc.winupdate=1
 debug.hwc.force_gpu=1
-# debug.hwc.max_hw_overlays=5
-# debug.egl.hw=1
-# debug.sf.hw=1
-# persist.sys.ui.hw=true
-# video.accelerate.hw=1
-# debug.egl.profiler=1
+debug.hwc.max_hw_overlays=5
+debug.egl.hw=1
+debug.sf.hw=1
+persist.sys.ui.hw=true
 
 # Wifi
 wifi.interface=wlan0
