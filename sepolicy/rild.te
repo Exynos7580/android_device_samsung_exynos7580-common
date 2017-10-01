@@ -26,7 +26,7 @@ allow rild rild:capability { chown dac_read_search };
 # rild reads /proc/pid/cmdline of mediaserver
 allow rild mediaserver:dir { open read search getattr };
 allow rild mediaserver:file { open read getattr };
-allow rild default_prop:property_service set;
+# allow rild default_prop:property_service set;
 
 # /data/misc/radio/*
 allow rild radio_data_file:dir rw_dir_perms;
