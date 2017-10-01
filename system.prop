@@ -47,3 +47,5 @@ persist.sys.usb.config=mtp
 qcom.bluetooth.soc=rome
 ro.bt.bdaddr_path="/efs/bluetooth/bt_addr"
 
+# read DS/SS property
+import /efs/factory.prop
