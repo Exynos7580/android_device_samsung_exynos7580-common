@@ -45,3 +45,5 @@ persist.sys.usb.config=mtp
 
 # Bluetooth
 qcom.bluetooth.soc=rome
+ro.bt.bdaddr_path="/efs/bluetooth/bt_addr"
+
