@@ -85,7 +85,7 @@
     <integer name="config_screenBrightnessDim">10</integer>
 
     <!-- Boolean to enable stk functionality on Samsung phones -->
-    <bool name="config_samsung_stk">true</bool>
+    <!-- <bool name="config_samsung_stk">true</bool> -->
 
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.

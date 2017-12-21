@@ -3,5 +3,10 @@
 ####################
 
 PRODUCT_PACKAGES += \
-    libsecril-client \
-    libsecril-client-sap
+	libprotobuf-cpp-full \
+	libsecril-client \
+	modemloader \
+	rild \
+	libreference-ril \
+	libsecril-client-sap \
+	libril

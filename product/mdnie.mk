@@ -3,4 +3,4 @@
 ####################
 
 PRODUCT_PACKAGES += \
-    AdvancedDisplay
+   AdvancedDisplay

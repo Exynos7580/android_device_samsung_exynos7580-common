@@ -2,7 +2,7 @@
 # Charging		   #
 ####################
 
-WITH_CM_CHARGER := true
+WITH_LINEAGE_CHARGER := false
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true

@@ -18,7 +18,6 @@
 #ifndef ANDROID_GRALLOC_INTERFACE_H
 #define ANDROID_GRALLOC_INTERFACE_H
 
-#include <system/window.h>
 #include <system/graphics.h>
 #include <hardware/hardware.h>
 
@@ -68,71 +67,71 @@ __BEGIN_DECLS
 
 enum {
     /* buffer is never read in software */
-    GRALLOC_USAGE_SW_READ_NEVER         = 0x00000000,
+    GRALLOC_USAGE_SW_READ_NEVER         = 0x00000000U,
     /* buffer is rarely read in software */
-    GRALLOC_USAGE_SW_READ_RARELY        = 0x00000002,
+    GRALLOC_USAGE_SW_READ_RARELY        = 0x00000002U,
     /* buffer is often read in software */
-    GRALLOC_USAGE_SW_READ_OFTEN         = 0x00000003,
+    GRALLOC_USAGE_SW_READ_OFTEN         = 0x00000003U,
     /* mask for the software read values */
-    GRALLOC_USAGE_SW_READ_MASK          = 0x0000000F,
+    GRALLOC_USAGE_SW_READ_MASK          = 0x0000000FU,
 
     /* buffer is never written in software */
-    GRALLOC_USAGE_SW_WRITE_NEVER        = 0x00000000,
+    GRALLOC_USAGE_SW_WRITE_NEVER        = 0x00000000U,
     /* buffer is rarely written in software */
-    GRALLOC_USAGE_SW_WRITE_RARELY       = 0x00000020,
+    GRALLOC_USAGE_SW_WRITE_RARELY       = 0x00000020U,
     /* buffer is often written in software */
-    GRALLOC_USAGE_SW_WRITE_OFTEN        = 0x00000030,
+    GRALLOC_USAGE_SW_WRITE_OFTEN        = 0x00000030U,
     /* mask for the software write values */
-    GRALLOC_USAGE_SW_WRITE_MASK         = 0x000000F0,
+    GRALLOC_USAGE_SW_WRITE_MASK         = 0x000000F0U,
 
     /* buffer will be used as an OpenGL ES texture */
-    GRALLOC_USAGE_HW_TEXTURE            = 0x00000100,
+    GRALLOC_USAGE_HW_TEXTURE            = 0x00000100U,
     /* buffer will be used as an OpenGL ES render target */
-    GRALLOC_USAGE_HW_RENDER             = 0x00000200,
+    GRALLOC_USAGE_HW_RENDER             = 0x00000200U,
     /* buffer will be used by the 2D hardware blitter */
-    GRALLOC_USAGE_HW_2D                 = 0x00000400,
+    GRALLOC_USAGE_HW_2D                 = 0x00000400U,
     /* buffer will be used by the HWComposer HAL module */
-    GRALLOC_USAGE_HW_COMPOSER           = 0x00000800,
+    GRALLOC_USAGE_HW_COMPOSER           = 0x00000800U,
     /* buffer will be used with the framebuffer device */
-    GRALLOC_USAGE_HW_FB                 = 0x00001000,
+    GRALLOC_USAGE_HW_FB                 = 0x00001000U,
 
     /* buffer should be displayed full-screen on an external display when
      * possible */
-    GRALLOC_USAGE_EXTERNAL_DISP         = 0x00002000,
+    GRALLOC_USAGE_EXTERNAL_DISP         = 0x00002000U,
 
     /* Must have a hardware-protected path to external display sink for
      * this buffer.  If a hardware-protected path is not available, then
      * either don't composite only this buffer (preferred) to the
      * external sink, or (less desirable) do not route the entire
      * composition to the external sink.  */
-    GRALLOC_USAGE_PROTECTED             = 0x00004000,
+    GRALLOC_USAGE_PROTECTED             = 0x00004000U,
 
     /* buffer may be used as a cursor */
-    GRALLOC_USAGE_CURSOR                = 0x00008000,
+    GRALLOC_USAGE_CURSOR                = 0x00008000U,
 
     /* buffer will be used with the HW video encoder */
-    GRALLOC_USAGE_HW_VIDEO_ENCODER      = 0x00010000,
+    GRALLOC_USAGE_HW_VIDEO_ENCODER      = 0x00010000U,
     /* buffer will be written by the HW camera pipeline */
-    GRALLOC_USAGE_HW_CAMERA_WRITE       = 0x00020000,
+    GRALLOC_USAGE_HW_CAMERA_WRITE       = 0x00020000U,
     /* buffer will be read by the HW camera pipeline */
-    GRALLOC_USAGE_HW_CAMERA_READ        = 0x00040000,
+    GRALLOC_USAGE_HW_CAMERA_READ        = 0x00040000U,
     /* buffer will be used as part of zero-shutter-lag queue */
-    GRALLOC_USAGE_HW_CAMERA_ZSL         = 0x00060000,
+    GRALLOC_USAGE_HW_CAMERA_ZSL         = 0x00060000U,
     /* mask for the camera access values */
     GRALLOC_USAGE_HW_CAMERA_MASK        = 0x00060000,
     /* buffer will be used by the HW IPs when sysmmu is off */
-    GRALLOC_USAGE_PHYSICALLY_LINEAR     = 0x01000000,
+    GRALLOC_USAGE_PHYSICALLY_LINEAR     = 0x01000000U,
     /* mask for the software usage bit-mask */
-    GRALLOC_USAGE_HW_MASK               = 0x00079F00,
+    GRALLOC_USAGE_HW_MASK               = 0x00079F00U,
 
     /* buffer will be used as a RenderScript Allocation */
-    GRALLOC_USAGE_RENDERSCRIPT          = 0x00100000,
+    GRALLOC_USAGE_RENDERSCRIPT          = 0x00100000U,
 
     /* Set by the consumer to indicate to the producer that they may attach a
      * buffer that they did not detach from the BufferQueue. Will be filtered
      * out by GRALLOC_USAGE_ALLOC_MASK, so gralloc modules will not need to
      * handle this flag. */
-    GRALLOC_USAGE_FOREIGN_BUFFERS       = 0x00200000,
+    GRALLOC_USAGE_FOREIGN_BUFFERS       = 0x00200000U,
 
     /* Mask of all flags which could be passed to a gralloc module for buffer
      * allocation. Any flags not in this mask do not need to be handled by
@@ -140,11 +139,11 @@ enum {
     GRALLOC_USAGE_ALLOC_MASK            = ~(GRALLOC_USAGE_FOREIGN_BUFFERS),
 
     /* implementation-specific private usage flags */
-    GRALLOC_USAGE_PRIVATE_0             = 0x10000000,
-    GRALLOC_USAGE_PRIVATE_1             = 0x20000000,
-    GRALLOC_USAGE_PRIVATE_2             = 0x40000000,
-    GRALLOC_USAGE_PRIVATE_3             = 0x80000000,
-    GRALLOC_USAGE_PRIVATE_MASK          = 0xF0000000,
+    GRALLOC_USAGE_PRIVATE_0             = 0x10000000U,
+    GRALLOC_USAGE_PRIVATE_1             = 0x20000000U,
+    GRALLOC_USAGE_PRIVATE_2             = 0x40000000U,
+    GRALLOC_USAGE_PRIVATE_3             = 0x80000000U,
+    GRALLOC_USAGE_PRIVATE_MASK          = 0xF0000000U,
 
     GRALLOC_USAGE_INTERNAL_ONLY         = 0x10000000,
     GRALLOC_USAGE_EXTERNAL_FLEXIBLE     = 0x20000000,
@@ -152,20 +151,6 @@ enum {
     GRALLOC_USAGE_EXTERNAL_ONLY         = 0x80000000,
     GRALLOC_USAGE_EXTERNAL_VIRTUALFB    = 0x00400000,
     GRALLOC_USAGE_PRIVATE_NONSECURE     = 0x02000000,
-
-#ifdef EXYNOS4_ENHANCEMENTS
-    /* SAMSUNG */
-    GRALLOC_USAGE_PRIVATE_NONECACHE     = 0x00800000,
-
-    GRALLOC_USAGE_HW_FIMC1              = 0x01000000,
-    GRALLOC_USAGE_HW_ION                = 0x02000000,
-    GRALLOC_USAGE_YUV_ADDR              = 0x04000000,
-    GRALLOC_USAGE_CAMERA                = 0x08000000,
-
-    /* SEC Private usage , for Overlay path at HWC */
-    GRALLOC_USAGE_HWC_HWOVERLAY         = 0x20000000,
-#endif
-
     GRALLOC_USAGE_GPU_BUFFER            = 0x00800000,
 };
 
@@ -260,11 +245,6 @@ typedef struct gralloc_module_t {
     int (*unlock)(struct gralloc_module_t const* module,
             buffer_handle_t handle);
 
-#ifdef EXYNOS4_ENHANCEMENTS
-    int (*getphys) (struct gralloc_module_t const* module,
-            buffer_handle_t handle, void** paddr);
-#endif
-
     /* reserved for future use */
     int (*perform)(struct gralloc_module_t const* module,
             int operation, ... );
@@ -353,21 +333,6 @@ typedef struct gralloc_module_t {
 typedef struct alloc_device_t {
     struct hw_device_t common;
 
-#ifdef QCOM_BSP
-    /*
-     * (*allocSize)() Allocates a buffer in graphic memory with the requested
-     * bufferSize parameter and returns a buffer_handle_t and the stride in
-     * pixels to allow the implementation to satisfy hardware constraints on
-     * the width of a pixmap (eg: it may have to be multiple of 8 pixels).
-     * The CALLER TAKES OWNERSHIP of the buffer_handle_t.
-     *
-     * Returns 0 on success or -errno on error.
-     */
-    int (*allocSize)(struct alloc_device_t* dev,
-            int w, int h, int format, int usage,
-            buffer_handle_t* handle, int* stride, int bufferSize);
-#endif
-
     /*
      * (*alloc)() Allocates a buffer in graphic memory with the requested
      * parameters and returns a buffer_handle_t and the stride in pixels to
@@ -417,7 +382,7 @@ static inline int gralloc_open(const struct hw_module_t* module,
 #ifdef __cplusplus
             GRALLOC_HARDWARE_GPU0, reinterpret_cast<struct hw_device_t**>(device));
 #else
-            GRALLOC_HARDWARE_GPU0, (struct hw_device_t**)device);
+            GRALLOC_HARDWARE_GPU0, TO_HW_DEVICE_T_OPEN(device));
 #endif
 }
 

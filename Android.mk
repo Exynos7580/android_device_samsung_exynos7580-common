@@ -15,6 +15,7 @@
 #
 
 LOCAL_PATH := $(call my-dir)
+SAM_ROOT := hardware/samsung
 
 ifneq ($(filter a3xeltexx a5xeltexx a7xeltexx gvwifi gvlte j7eltexx s5neoltexx, $(TARGET_DEVICE)),)
 
@@ -23,12 +24,15 @@ include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 # Create links for OpenCL files
 $(shell mkdir -p  $(TARGET_OUT)/vendor/lib; \
+	mkdir -p  $(TARGET_OUT)/vendor/lib/hw; \
     ln -sf /vendor/lib/egl/libGLES_mali.so \
     $(TARGET_OUT)/vendor/lib/libOpenCL.so.1.1; \
     ln -sf /system/vendor/lib/libOpenCL.so.1.1 \
     $(TARGET_OUT)/vendor/lib/libOpenCL.so.1; \
     ln -sf /system/vendor/lib/libOpenCL.so.1 \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so)
+    $(TARGET_OUT)/vendor/lib/libOpenCL.so; \
+    ln -sf /system/vendor/lib/egl/libGLES_mali.so \
+    $(TARGET_OUT)/vendor/lib/hw/vulkan.exynos5.so)
 
 ifneq ($(FORCE_32_BIT),true)
 $(shell mkdir -p  $(TARGET_OUT)/vendor/lib64; \

@@ -20,8 +20,8 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 
 TARGET_USES_64_BIT_BINDER := true
 else
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+BOARD_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+BOARD_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_BOARD_SUFFIX := _32
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
