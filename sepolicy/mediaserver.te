@@ -9,7 +9,7 @@ allow mediaserver camera_device:chr_file { read write open getattr ioctl };
 
 #============= mediaserver ==============
 allow mediaserver cameraproxy_service:service_manager find;
-allow mediaserver mediaserver_tmpfs:file { read write };
+#allow mediaserver mediaserver_tmpfs:file { read write };
 allow mediaserver system_data_file:sock_file write; 
 
 # Snap permissions

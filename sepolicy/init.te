@@ -26,7 +26,6 @@ allow init tee_device:chr_file { write ioctl };
 allow init mif_device:chr_file { write ioctl };
 
 allow init kmsg_device:chr_file write;
-allow init log_device:chr_file write;
 
 allow init property_socket:sock_file write;
 

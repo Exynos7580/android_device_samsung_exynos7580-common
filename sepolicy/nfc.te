@@ -1,4 +1,5 @@
 allow nfc efs_file:dir search;
+allow nfc sysfs:dir { getattr open read };
 allow nfc nfc_data_file:dir { search write add_name };
 allow nfc nfc_data_file:file { create open write read };
 allow platform_app nfc_service:service_manager find;

@@ -1,3 +1,5 @@
+type sysinit, domain;
+
 allow sysinit sysfs_lowmemorykiller:file { write open };
 allow sysinit proc:file { write open };
 allow sysinit sysfs:dir { read open };

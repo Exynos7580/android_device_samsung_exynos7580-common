@@ -1,0 +1,24 @@
+allow adbd sysfs:file { getattr open read };
+allow bootstat sysfs:file { getattr open read };
+allow hal_configstore_default sysfs:file { getattr open read };
+allow hal_graphics_allocator_default sysfs:file { getattr open read };
+allow hal_ir_default sysfs:file { getattr open read write };
+allow hal_keymaster_default sysfs:file { getattr open read };
+allow hal_wifi_default sysfs:file { getattr open read write };
+allow hwservicemanager sysfs:file { getattr open read };
+allow logd sysfs:file { getattr open read };
+allow mediametrics sysfs:file { getattr open read };
+allow recovery_persist sysfs:file { getattr open read };
+allow recovery_refresh sysfs:file { getattr open read };
+allow servicemanager sysfs:file { getattr open read };
+allow shell sysfs:file { getattr open read };
+allow tzdatacheck sysfs:file { getattr open read };
+allow vdc sysfs:file { getattr open read };
+allow vndservicemanager sysfs:file { getattr open read };
+allow webview_zygote sysfs:file { getattr open read };
+
+# Untrusted apps
+allow untrusted_app sysfs:dir { getattr open read };
+allow untrusted_app sysfs:file { getattr open read };
+allow untrusted_app_25 sysfs:file { getattr open read };
+allow untrusted_app_25 sysfs:dir { getattr open read };

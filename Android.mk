@@ -25,14 +25,10 @@ include $(call all-subdir-makefiles,$(LOCAL_PATH))
 # Create links for OpenCL files
 $(shell mkdir -p  $(TARGET_OUT)/vendor/lib; \
 	mkdir -p  $(TARGET_OUT)/vendor/lib/hw; \
-    ln -sf /vendor/lib/egl/libGLES_mali.so \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so.1.1; \
-    ln -sf /system/vendor/lib/libOpenCL.so.1.1 \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so.1; \
-    ln -sf /system/vendor/lib/libOpenCL.so.1 \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so; \
-    ln -sf /system/vendor/lib/egl/libGLES_mali.so \
-    $(TARGET_OUT)/vendor/lib/hw/vulkan.exynos5.so)
+    ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT)/vendor/lib/libOpenCL.so.1.1; \
+    ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT)/vendor/lib/libOpenCL.so.1; \
+    ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT)/vendor/lib/libOpenCL.so; \
+    ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT)/vendor/lib/hw/vulkan.exynos5.so)
 
 ifneq ($(FORCE_32_BIT),true)
 $(shell mkdir -p  $(TARGET_OUT)/vendor/lib64; \

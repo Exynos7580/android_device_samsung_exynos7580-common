@@ -80,17 +80,9 @@
 # biometrics
 /data/biometrics(/.*)?	     u:object_r:biometrics_data_file:s0
 
-# gps
-/data/system/gps(/.*)?       u:object_r:gps_data_file:s0
 
 # tee
 /data/misc/mcRegistry(/.*)?  u:object_r:mobicore_data_file:s0
-
-####################################
-# sysfs files
-/sys/class/power_supply/battery/music -- u:object_r:sysfs_writable:s0
-/sys/class/devfreq/exynos5-busfreq-mif(/.*)? -- u:object_r:sysfs_writable:s0
-/sys/class/lcd(/.*)?         -- u:object_r:sysfs_writable:s0
 
 # bluetooth
 /sys/devices/bluetooth.[0-9]*/rfkill/rfkill0/state  u:object_r:sysfs_bluetooth_writable:s0
@@ -124,7 +116,6 @@
 /system/bin/wifiloader       -- u:object_r:wifiloader_exec:s0
 
 /sbin/cbd                    -- u:object_r:rootfs:s0
-/system/bin/gpsd             -- u:object_r:gpsd_exec:s0
 
 ####################################
 # Exynos7580 Power HAL
