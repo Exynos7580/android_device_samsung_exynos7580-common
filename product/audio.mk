@@ -3,7 +3,7 @@
 ####################
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf
+    $(LOCAL_PATH)/configs/audio/audio_effects.xml:system/vendor/etc/audio_effects.xml
 
 PRODUCT_PACKAGES += \
     audio.primary.universal7580 \
