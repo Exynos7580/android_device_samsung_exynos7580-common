@@ -25,5 +25,7 @@ include $(SAM_ROOT)/modemloader/Android.mk
 include $(SAM_ROOT)/power/Android.mk
 
 # Include RIL-projects (except libril)
-include $(SAM_ROOT)/ril/libsecril-client/Android.mk
+# Don't include libsecril-client as we use own
+# include $(SAM_ROOT)/ril/libsecril-client/Android.mk
 include $(SAM_ROOT)/ril/libsecril-client-sap/Android.mk
+
