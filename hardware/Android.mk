@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+ifeq ($(TARGET_RIL_VARIANT),exynos7580-common)
 
 # Include OSS Samsung Hardware-Projects (except ril)
 include $(SAM_ROOT)/AdvancedDisplay/Android.mk
@@ -29,3 +30,4 @@ include $(SAM_ROOT)/power/Android.mk
 # include $(SAM_ROOT)/ril/libsecril-client/Android.mk
 include $(SAM_ROOT)/ril/libsecril-client-sap/Android.mk
 
+endif
