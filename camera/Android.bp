@@ -1,0 +1,5 @@
+cc_library_static {
+    name: "libcamera_parameters_ext",
+	include_dirs: ["device/samsung/exynos7580-common/include"],
+    srcs: ["CameraParameters.cpp"],
+}
