@@ -80,6 +80,8 @@
 # biometrics
 /data/biometrics(/.*)?	     u:object_r:biometrics_data_file:s0
 
+# gps
+/data/system/gps(/.*)?       u:object_r:gps_data_file:s0
 
 # tee
 /data/misc/mcRegistry(/.*)?  u:object_r:mobicore_data_file:s0
@@ -116,6 +118,7 @@
 /system/bin/wifiloader       -- u:object_r:wifiloader_exec:s0
 
 /system/bin/cbd             u:object_r:cpboot-daemon_exec:s0
+/system/bin/gpsd             -- u:object_r:gpsd_exec:s0
 
 ####################################
 # Exynos7580 Power HAL
