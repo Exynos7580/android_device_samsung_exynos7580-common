@@ -3,9 +3,7 @@
 ####################
 
 PRODUCT_PACKAGES += \
-	gralloc.exynos5 \
 	libion \
-	hwcomposer.exynos5 \
 	libfimg \
 	android.hardware.graphics.allocator@2.0-impl \
 	android.hardware.graphics.allocator@2.0-service \
