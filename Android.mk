@@ -30,11 +30,4 @@ $(shell mkdir -p  $(TARGET_OUT)/vendor/lib; \
     ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT)/vendor/lib/libOpenCL.so; \
     ln -sf /vendor/lib/egl/libGLES_mali.so $(TARGET_OUT)/vendor/lib/hw/vulkan.exynos5.so)
 
-ifneq ($(FORCE_32_BIT),true)
-$(shell mkdir -p  $(TARGET_OUT)/vendor/lib64; \
-    mkdir -p  $(TARGET_OUT)/vendor/lib64/egl; \
-    ln -sf /vendor/lib/egl/libGLES_mali.so \
-    $(TARGET_OUT)/vendor/lib64/egl/libGLES_mali.so)
-endif
-
 endif
