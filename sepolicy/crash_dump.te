@@ -1,0 +1,1 @@
+allow crash_dump sysfs:file { read open getattr };

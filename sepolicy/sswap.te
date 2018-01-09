@@ -12,3 +12,6 @@ allow sswap proc:file { open getattr read };
 allow sswap proc_meminfo:file { open read getattr };
 allow sswap property_socket:sock_file write;
 allow sswap init:unix_stream_socket connectto;
+
+allow sswap properties_device:dir { read open };
+allow sswap proc_stat:dir { read open getattr };

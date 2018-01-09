@@ -1,3 +1,5 @@
 neverallow blkid_untrusted {
  efs_block_device
 }:blk_file no_rw_file_perms;
+
+allow blkid_untrusted sysfs:file { read open getattr };

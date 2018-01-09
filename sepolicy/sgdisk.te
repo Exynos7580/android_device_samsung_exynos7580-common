@@ -1,0 +1,1 @@
+allow sgdisk sysfs:file { read open getattr };
