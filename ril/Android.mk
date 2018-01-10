@@ -15,7 +15,8 @@
 # limitations under the License.
 #
 
-ifeq ($(TARGET_RIL_VARIANT),exynos7580-common)
+ifeq ($(USE_COMMON_RIL), true)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
