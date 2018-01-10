@@ -1,12 +1,8 @@
 ####################
-# Graphics         #
+# Graphics
 ####################
 
 PRODUCT_PACKAGES += \
-	gralloc.exynos5 \
-	libion \
-	hwcomposer.exynos5 \
-	libfimg \
 	android.hardware.graphics.allocator@2.0-impl \
 	android.hardware.graphics.allocator@2.0-service \
 	android.hardware.graphics.composer@2.1-impl \
@@ -20,8 +16,3 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
 	android.hardware.drm@1.0-impl
-
-# Not shims you are looking for
-PRODUCT_PACKAGES += \
-	libprocname
-

@@ -3,16 +3,13 @@ af.fast_track_multiplier=1
 audio_hal.disable_two_mic=true
 
 # Display
-ro.opengles.version=196609
+ro.opengles.version=196610
 
 # HWC
 debug.hwc.force_gpu=0
-debug.hwc.max_hw_overlays=1
+debug.hwc.max_hw_overlays=5
 debug.egl.hw=1
-debug.sf.hw=1
 persist.sys.ui.hw=true
-video.accelerate.hw=1
-debug.egl.profiler=1
 
 # Wifi
 wifi.interface=wlan0

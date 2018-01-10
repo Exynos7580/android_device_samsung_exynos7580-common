@@ -14,9 +14,3 @@ TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
 # LED path
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
-
-# SELinux
-BOARD_SEPOLICY_DIRS := $(VENDOR_PATH)/sepolicy
-
-# Seccomp filters
-BOARD_SECCOMP_POLICY += $(VENDOR_PATH)/seccomp
