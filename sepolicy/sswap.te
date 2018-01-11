@@ -15,3 +15,4 @@ allow sswap init:unix_stream_socket connectto;
 
 allow sswap properties_device:dir { read open };
 allow sswap proc_stat:dir { read open getattr };
+allow sswap proc_stat:file { read open getattr };
