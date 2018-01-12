@@ -33,3 +33,5 @@ allow rild sysfs:file write;
 
 allow rild init:dir { open search };
 allow rild init:file { read open getattr };
+
+allow rild radio_block_device:file { read open };
