@@ -1,0 +1,1 @@
+allow logpersist system_data_file:dir { read write };
