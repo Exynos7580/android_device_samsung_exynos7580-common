@@ -55,7 +55,7 @@ allow init uart_device:chr_file { write ioctl getattr };
 allow init fwmarkd_socket:sock_file write;
 allow init netd:unix_stream_socket connectto;
 
-allow init vendor_file:file { execute_no_trans read };
+allow init vendor_file:file { read };
 # NEVERALLOW : allow init system_file:file execute_no_trans;
 allow init gps_data_file:file lock;
 allow init rild:unix_stream_socket connectto;
