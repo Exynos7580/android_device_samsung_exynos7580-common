@@ -1,4 +1,3 @@
 # Shims
 PRODUCT_PACKAGES += \
-    libexynoscamera_shim \
-    libshim_camera
+    libexynoscamera_shim
