@@ -28,6 +28,3 @@ allow macloader efs_file:dir r_dir_perms;
 # /efs/wifi/.mac.info
 allow macloader wifi_efs_file:dir r_dir_perms;
 allow macloader wifi_efs_file:file r_file_perms;
-
-# /system/vendor/bin/macloader
-allow macloader vendor_file:file entrypoint;
