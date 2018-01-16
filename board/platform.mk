@@ -2,12 +2,7 @@
 # Platform         #
 ####################
 
-ifeq ($(USE_COMMON_RIL), true)
-# Do not set vendor to not automatically include hardware/samsung
-BOARD_VENDOR :=
-else
 BOARD_VENDOR := samsung
-endif
 
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_SOC := exynos7580

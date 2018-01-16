@@ -15,7 +15,6 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-SAM_ROOT := hardware/samsung
 
 ifneq ($(filter a3xeltexx a5xeltexx a7xeltexx gvwifi gvlte j7eltexx s5neoltexx, $(TARGET_DEVICE)),)
 
