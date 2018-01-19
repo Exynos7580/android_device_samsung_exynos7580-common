@@ -111,7 +111,7 @@
 ####################################
 # deamons
 #
-/system/bin/mcDriverDriver                    u:object_r:tee_exec:s0
+/system/bin/mcDriverDaemon                    u:object_r:tee_exec:s0
 (/vendor|/system/vendor)/bin/macloader        u:object_r:macloader_exec:s0
 (/vendor|/system/vendor)/bin/modemloader      -- u:object_r:modemloader_exec:s0
 (/vendor|/system/vendor)/bin/sensorhubservice -- u:object_r:sensorhubservice_exec:s0
