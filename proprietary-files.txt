@@ -1,5 +1,24 @@
+### Camera
+lib/libexynosv4l2.so
+lib/libhwjpeg.so
+lib/libuniplugin.so
+lib/libsensorlistener.so
+
+# Gralloc
+lib/hw/gralloc.exynos5.so
+
 ### GPS
 bin/gpsd
+bin/gps.cer
+lib/hw/gps.default.so:lib/hw/gps.universal7580.so
+lib/libwrappergps.so
+lib/libfloatingfeature.so
+
+### Graphics
+vendor/lib/egl/libGLES_mali.so
+
+### Mobicore
+bin/cs
 
 ### Noise supppression
 vendor/lib/libLifevibes_lvverx.so
@@ -14,5 +33,9 @@ lib/omx/libOMX.Exynos.VP8.Decoder.so
 lib/omx/libOMX.Exynos.VP8.Encoder.so
 lib/omx/libOMX.Exynos.WMV.Decoder.so
 
+### RIL
+lib/libsecnativefeature.so
+
 ### Widevine
 vendor/lib/mediadrm/libwvdrmengine.so
+lib/libstagefright_hdcp.so
