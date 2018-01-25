@@ -63,3 +63,6 @@ allow init gps_data_file:fifo_file write;
 allow init dnsproxyd_socket:sock_file write;
 allow init init:tcp_socket connect;
 allow init port:tcp_socket name_connect;
+
+# gpsd
+allow init gpsd_exec:file { getattr execute read open execute_no_trans };
