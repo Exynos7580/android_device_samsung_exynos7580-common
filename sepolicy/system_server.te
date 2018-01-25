@@ -49,3 +49,4 @@ allow system_server power_hal_data_files:file rw_file_perms;
 
 # NEVERALLOW : allow system_server dalvikcache_data_file:file execute;
 allow system_server unlabeled:file unlink;
+allow system_server emmcblk_device:blk_file { write ioctl getattr read open };
