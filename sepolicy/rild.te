@@ -38,3 +38,4 @@ allow rild radio_block_device:file { read open };
 allow rild radio_block_device:blk_file { read open };
 allow rild unlabeled:file { open append getattr read write };
 allow rild sec_efs_file:dir search;
+allow rild sec_efs_file:file { getattr read open };
