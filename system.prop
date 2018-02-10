@@ -4,13 +4,6 @@ af.fast_track_multiplier=1
 # Display
 ro.opengles.version=196610
 
-# HWC
-debug.hwc.force_gpu=0
-debug.egl.hw=1
-debug.sf.enable_hwc_vds=1
-debug.sf.hw=1
-persist.sys.ui.hw=true
-
 # Wifi
 wifi.interface=wlan0
 net.tethering.noprovisioning=true
