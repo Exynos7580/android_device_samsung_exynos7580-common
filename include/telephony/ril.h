@@ -590,11 +590,6 @@ typedef struct {
     int vendor_data;  /* unknown value returned by T805 modem */					 
 } RIL_SMS_Response;
 
-typedef struct {
-    RIL_SMS_Response response;
-    int retryCount;   /* Samsung */
-} RIL_SMS_Response_Ext;
- 
 /** Used by RIL_REQUEST_WRITE_SMS_TO_SIM */
 typedef struct {
     int status;     /* Status of message.  See TS 27.005 3.1, "<stat>": */
