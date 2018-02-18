@@ -14,6 +14,9 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # Screen casting
 BOARD_USES_WFD := true
 
+# HWC
+BOARD_USES_HWC_SERVICES := true
+
 # BGRA mixing
 BOARD_USE_BGRA_8888_FB := true
 
