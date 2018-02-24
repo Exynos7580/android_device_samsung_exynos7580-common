@@ -3,8 +3,8 @@ allow untrusted_app device:dir read;
 allow untrusted_app untrusted_app:udp_socket ioctl;
 
 # These are safe for an untrusted_app -- they are the external SD card
-allow untrusted_app fuseblk:dir search;
-allow untrusted_app fuseblk:file { getattr read };
+allow untrusted_app fuse:dir search;
+allow untrusted_app fuse:file { getattr read };
 
 # sdcardfs
 allow untrusted_app vfat:dir create_dir_perms;
