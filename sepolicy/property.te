@@ -6,7 +6,3 @@ type cpboot-daemon_prop, property_type;
 
 # Mobicore Daemon
 type tee_prop, property_type;
-
-recovery_only(`
-type sf_lcd_density_prop, property_type;
-')

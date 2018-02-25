@@ -16,9 +16,6 @@ type wifi_efs_file, file_type;
 type sysfs_mdnie_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_mipi_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_multipdp_writable, fs_type, sysfs_type, mlstrustedobject;
-recovery_only(`
-type sysfs_graphics, sysfs_type, fs_type;
-')
 
 allow sysfs_type tmpfs:filesystem associate;
 
