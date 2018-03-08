@@ -3,7 +3,7 @@
 ####################
 
 # Samsung OpenMAX Video
-BOARD_USE_STOREMETADATA := true
+# BOARD_USE_STOREMETADATA := true  -- not working due to invalid buffer handles
 BOARD_USE_METADATABUFFERTYPE := true
 BOARD_USE_DMA_BUF := true
 BOARD_USE_ANB_OUTBUF_SHARE := true
