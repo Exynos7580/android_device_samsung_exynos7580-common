@@ -38,7 +38,8 @@ public class SunlightEnhancement {
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-        return FileUtils.isFileWritable(HBM_PATH);
+        return FileUtils.isFileWritable(HBM_PATH) &&
+                FileUtils.isFileReadable(HBM_PATH);
     }
 
     /**
@@ -48,11 +49,7 @@ public class SunlightEnhancement {
      * the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() {
-        /**
-         * return FileUtils.readOneLine(HBM_PATH).equals(HBM_MIN_VALUE);
-         * HBM_PATH returns 0 or 1, so we cant compare to HBM_MIN_VALUE
-         */
-        return FileUtils.readOneLine(HBM_PATH).equals("1");
+        return Integer.parseInt(FileUtils.readOneLine(HBM_PATH)) > 0;
     }
 
     /**
