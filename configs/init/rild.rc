@@ -32,6 +32,4 @@ on property:ro.radio.noril=1
 
 # start multiple rilds based on multisim property
 on property:ro.multisim.simslotcount=2
-    stop ril-daemon
-    start ril-daemon
-    start ril-daemon1
+    enable ril-daemon1
