@@ -4,7 +4,7 @@ type sswap_device, dev_type;
 
 allow sswap sswap_device:blk_file { read write open };
 allow sswap rootfs:file { entrypoint read };
-allow sswap sysfs:file { write open };
+allow sswap sysfs:file { write open read };
 allow sswap block_device:dir search;
 allow sswap self:capability sys_admin;
 
