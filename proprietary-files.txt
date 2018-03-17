@@ -16,6 +16,7 @@ lib/libfloatingfeature.so
 
 ### Graphics
 vendor/lib/egl/libGLES_mali.so
+lib/libcsc.so
 
 ### Mobicore
 bin/cs
