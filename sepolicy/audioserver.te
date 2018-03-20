@@ -1,2 +1,5 @@
 # Allow rild to connect to gpsd
 unix_socket_connect(audioserver, property, rild)
+
+# TFA98xx amplifier
+allow audioserver amplifier_device:chr_file { ioctl rw_file_perms };
