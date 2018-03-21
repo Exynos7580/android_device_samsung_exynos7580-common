@@ -1,5 +1,6 @@
 # Audio
 af.fast_track_multiplier=1
+audio_hal.force_voice_config=wide
 
 # Display
 ro.opengles.version=196610
