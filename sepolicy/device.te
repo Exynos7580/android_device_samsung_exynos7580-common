@@ -28,3 +28,6 @@ type uart_device, dev_type;
 type vfs_device, dev_type;
 
 type batch_io_device, dev_type;
+
+# /dev/i2c-0 - TFA98xx amplifier
+type amplifier_device, dev_type;
