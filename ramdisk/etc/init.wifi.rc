@@ -59,6 +59,7 @@ service macloader /vendor/bin/macloader
     user system
     group wifi
     oneshot
+    seclabel u:r:macloader:s0
 
 on property:init.svc.macloader=stopped
     chown system root /data/.cid.info
