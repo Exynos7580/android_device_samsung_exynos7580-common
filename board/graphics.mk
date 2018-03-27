@@ -29,6 +29,3 @@ BOARD_USES_GSC_VIDEO := true
 
 # ION
 TARGET_USES_ION := true
-
-# Gralloc
-TARGET_USES_GRALLOC1_ADAPTER := true
