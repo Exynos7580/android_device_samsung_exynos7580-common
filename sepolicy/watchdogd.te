@@ -1,0 +1,1 @@
+allow watchdogd sysfs:file { read  open getattr };
