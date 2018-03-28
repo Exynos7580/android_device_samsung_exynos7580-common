@@ -7,6 +7,7 @@ ro.opengles.version=196610
 
 # HWC
 debug.hwc.force_gpu=1
+ro.sf.disable_triple_buffer=0
 
 # Wifi
 wifi.interface=wlan0
