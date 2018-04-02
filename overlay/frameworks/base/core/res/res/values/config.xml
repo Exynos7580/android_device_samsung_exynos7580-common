@@ -97,15 +97,15 @@
 
     <!-- reference volume index for music stream to limit headphone volume and display warning -->
     <integer name="config_safe_media_volume_index">7</integer>
-    
-    <!-- Doze (Ambient display) 
+
+    <!-- Doze (Ambient display)
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string> -->
 
     <!-- Power Management: Specifies whether to decouple the interactive state of the
          device from the display on/off state. -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
 
-    <!-- Enable doze powersaving -->		
+    <!-- Enable doze powersaving -->
     <bool name="config_enableAutoPowerModes">true</bool>
 
     <!-- Allow screen mirroring/miracast -->
@@ -129,4 +129,8 @@
          Note that doze dreams are not subject to the same start conditions as ordinary dreams.
          Doze dreams will run whenever the power manager is in a dozing state. -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+
+    <!-- If enabled, capacitive keys will only light up when pressed.
+         Otherwise, the buttons will light up whenever the user interacts with the device -->
+    <bool name="config_buttonLightOnKeypressOnly">true</bool>
 </resources>
