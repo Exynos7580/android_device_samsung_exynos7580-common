@@ -1,1 +1,2 @@
-allow hal_bluetooth_default bluetooth_device:chr_file { ioctl };
+allow hal_bluetooth_default bluetooth_device:chr_file { ioctl read write open };
+allow hal_bluetooth_default efs_file:dir { search };

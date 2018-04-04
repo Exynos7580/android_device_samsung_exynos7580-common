@@ -1,10 +1,13 @@
 # modemloader
-hw.revision                         u:object_r:modemloader_prop:s0
+hw.revision            u:object_r:modemloader_prop:s0
+ro.cbd.dt_revision     u:object_r:modemloader_prop:s0
+ril.cbd.dt_revision    u:object_r:modemloader_prop:s0
+ro.modemloader.done    u:object_r:modemloader_prop:s0
 
-# Mobicore
-sys.mobicoredaemon.enable           u:object_r:tee_prop:s0
+# mobicore
+sys.mobicoredaemon.enable         u:object_r:tee_prop:s0
 
-# RIL
-persist.ril.modem.board             u:object_r:radio_prop:s0
+# radio
+persist.ril.modem.board    u:object_r:radio_prop:s0
+persist.ril.ims.eutranParam u:object_r:radio_prop:s0
 persist.ril.interfaceconf.failed    u:object_r:radio_prop:s0
-

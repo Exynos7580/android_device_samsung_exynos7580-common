@@ -114,13 +114,13 @@
 # deamons
 #
 /system/bin/mcDriverDaemon                    u:object_r:tee_exec:s0
-(/vendor|/system/vendor)/bin/macloader        u:object_r:macloader_exec:s0
-(/vendor|/system/vendor)/bin/modemloader      -- u:object_r:modemloader_exec:s0
-(/vendor|/system/vendor)/bin/sensorhubservice -- u:object_r:sensorhubservice_exec:s0
-(/vendor|/system/vendor)/bin/wifiloader       -- u:object_r:wifiloader_exec:s0
+(/system|/vendor|/system/vendor)/bin/macloader        u:object_r:macloader_exec:s0
+(/system|/vendor|/system/vendor)/bin/modemloader      u:object_r:modemloader_exec:s0
+(/system|/vendor|/system/vendor)/bin/sensorhubservice u:object_r:sensorhubservice_exec:s0
+(/system|/vendor|/system/vendor)/bin/wifiloader       u:object_r:wifiloader_exec:s0
 
 /system/bin/cbd             u:object_r:cpboot-daemon_exec:s0
-/system/bin/gpsd             -- u:object_r:gpsd_exec:s0
+/system/bin/gpsd            u:object_r:gpsd_exec:s0
 
 ####################################
 # Exynos7580 Power HAL
