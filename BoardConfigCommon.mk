@@ -18,3 +18,7 @@
 VENDOR_PATH := device/samsung/exynos7580-common
 
 -include $(VENDOR_PATH)/board/*.mk
+
+ifeq ($(WITH_TWRP),true)
+include $(VENDOR_PATH)/twrp.mk
+endif
