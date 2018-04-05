@@ -23,6 +23,10 @@ lib/libexynosgscaler.so
 ### Mobicore
 bin/cs
 
+### RIL
+lib/libsec-ril.so
+lib/libsec-ril-dsds.so
+
 ### Noise supppression
 vendor/lib/libLifevibes_lvverx.so
 vendor/lib/libLifevibes_lvvetx.so
