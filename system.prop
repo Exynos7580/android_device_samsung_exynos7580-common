@@ -34,9 +34,6 @@ persist.sys.usb.config=mtp
 # Bluetooth
 qcom.bluetooth.soc=rome
 
-# Games
-debug.egl.force_msaa=true
-
 # sdcardfs
 ro.sys.sdcardfs=true
 
