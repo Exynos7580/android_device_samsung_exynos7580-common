@@ -13,9 +13,8 @@ ro.sf.disable_triple_buffer=0
 wifi.interface=wlan0
 net.tethering.noprovisioning=true
 
-# media
-media.stagefright.legacyencoder=1
-media.stagefright.less-secure=1
+# Camera
+camera2.portability.force_api=1
 
 # misc
 ro.chipname=exynos7580
