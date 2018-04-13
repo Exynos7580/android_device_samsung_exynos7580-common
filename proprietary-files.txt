@@ -47,3 +47,4 @@ lib/libsecnativefeature.so
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/mediadrm/libdrmclearkeyplugin.so
 lib/libstagefright_hdcp.so
+lib/liboemcrypto.so
