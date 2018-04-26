@@ -28,8 +28,6 @@
     <string-array translatable="false" name="radioAttributes">
         <!-- DEFAULT -->
         <item>"1,1"</item>
-        <!-- MOBILE -->
-        <item>"0,1"</item>
         <!-- BLUETOOTH -->
         <item>"7,1"</item>
     </string-array>
@@ -86,11 +84,6 @@
 
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <!-- <bool name="config_samsung_stk">true</bool> -->
-
-    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
-         it causes the device to wake up.
-         The default is false. -->
-    <bool name="config_lidControlsSleep">true</bool>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
