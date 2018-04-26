@@ -16,6 +16,14 @@
 
 #include "libexynoscamera.h"
 
+/* status_t android::Fence::wait(int timeout); */
+extern "C" int _ZN7android5Fence4waitEi(int timeout);
+
+extern "C" int _ZN7android5Fence4waitEj(unsigned int timeout)
+{
+    return _ZN7android5Fence4waitEi((int)timeout);
+} 
+
 namespace android
 {
 	
