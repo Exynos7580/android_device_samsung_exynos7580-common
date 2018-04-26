@@ -13,5 +13,4 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     tinymix \
     android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.soundtrigger@2.0-impl
+    android.hardware.audio.effect@2.0-impl
