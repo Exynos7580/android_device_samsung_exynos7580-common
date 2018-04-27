@@ -1,0 +1,3 @@
+# NFC
+ro.nfc.sec_hal=true
+ro.nfc.port=I2C

@@ -13,5 +13,9 @@ BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/lineagehw
 # Properties
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
+ifeq ($(filter gvwifi gvlte, $(TARGET_DEVICE)),)
+TARGET_SYSTEM_PROP += $(VENDOR_PATH)/nfc.prop
+endif
+
 # LED path
 BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"

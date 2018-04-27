@@ -23,10 +23,6 @@ ro.arch=exynos7580
 # Strict Mode
 persist.sys.strictmode.disable=true
 
-# NFC
-ro.nfc.sec_hal=true
-ro.nfc.port=I2C
-
 # USB
 persist.sys.usb.config=mtp
 
