@@ -15,9 +15,10 @@
     limitations under the License.
 -->
 <resources>
-    <!-- Default value for proximity check on screen wake
-     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
-    <bool name="config_proximityCheckOnWake">true</bool>
-    <integer name="config_proximityCheckTimeout">400</integer>
-    <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
+    <!-- Defines the actions shown in advanced reboot submenu -->
+    <string-array name="config_restartActionsList">
+        <item>restart</item>
+        <item>restart_recovery</item>
+        <item>restart_download</item>
+     </string-array>
 </resources>
