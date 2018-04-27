@@ -15,6 +15,8 @@ TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
 ifeq ($(filter gvwifi gvlte, $(TARGET_DEVICE)),)
 TARGET_SYSTEM_PROP += $(VENDOR_PATH)/nfc.prop
+TARGET_SYSTEM_PROP += $(VENDOR_PATH)/ril.prop
+TARGET_SPECIFIC_HEADER_PATH += $(VENDOR_PATH)/ril/include
 endif
 
 # LED path
