@@ -5,7 +5,7 @@
 ifeq ($(filter gvwifi gvlte, $(TARGET_DEVICE)),)
 
 PRODUCT_PACKAGES += \
-	Snap
+	Camera2
 
 endif
 
