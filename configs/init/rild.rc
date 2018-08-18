@@ -7,6 +7,7 @@ service ril-daemon /vendor/bin/hw/rild -c 1 -l ${rild.libpath}
     user radio
     group radio cache inet misc audio sdcard_r sdcard_rw log vpn system readproc wakelock
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    onrestart restart cpboot-daemon
 
 # Radio daemon for SIM 2
 service ril-daemon1 /vendor/bin/hw/rild -c 2 -l ${rild.libpath2}
@@ -17,6 +18,7 @@ service ril-daemon1 /vendor/bin/hw/rild -c 2 -l ${rild.libpath2}
     group radio cache inet misc audio sdcard_r sdcard_rw log vpn system readproc wakelock
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 	disabled
+	onrestart restart cpboot-daemon
 
 on property:persist.sys.cpboot=disable
     stop ril-daemon
