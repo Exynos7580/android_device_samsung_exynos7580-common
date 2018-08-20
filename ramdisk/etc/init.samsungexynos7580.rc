@@ -826,13 +826,10 @@ on property:ro.bootmode=charger
     wait /dev/block/platform/13540000.dwmmc0/by-name/EFS
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
 
-on property:ro.bootmode=charger
-    class_start sec-charger
-
 service charger /charger
     class charger
     critical
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
 
 on charger
     # Set cpu governor to powersave while in charging mode
