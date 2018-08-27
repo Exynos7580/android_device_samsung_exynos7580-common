@@ -9,5 +9,5 @@ allow untrusted_app fuse:file { getattr read };
 # sdcardfs
 allow untrusted_app vfat:dir create_dir_perms;
 allow untrusted_app vfat:file create_file_perms;
-allow untrusted_app sdcard_posix:dir create_dir_perms;
-allow untrusted_app sdcard_posix:file create_file_perms;
+allow untrusted_app sdcard_type:dir create_dir_perms;
+allow untrusted_app sdcard_type:file create_file_perms;
