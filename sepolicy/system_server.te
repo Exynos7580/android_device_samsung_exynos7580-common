@@ -39,7 +39,7 @@ allow system_server debugfs:dir { read open };
 # Exynos7580 Power HAL
 #
 # directory
-allow system_server power_hal_sysfs:dir       rw_dir_perms;
+allow system_server power_hal_devfs:dir       rw_dir_perms;
 allow system_server power_hal_sysfs:dir       rw_dir_perms;
 allow system_server power_hal_data_files:dir  rw_dir_perms;
 # files

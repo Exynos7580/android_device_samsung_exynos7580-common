@@ -92,9 +92,13 @@ on boot
     chown radio system /sys/devices/11400000.mali/dvfs_table
     chown radio system /sys/devices/11400000.mali/dvfs_min_lock
     chown radio system /sys/devices/11400000.mali/dvfs_max_lock
+    chown radio system /sys/devices/11400000.mali/highspeed_clock
+    chown radio system /sys/devices/11400000.mali/highspeed_load
     chmod 0664 /sys/devices/11400000.mali/dvfs_table
     chmod 0664 /sys/devices/11400000.mali/dvfs_min_lock
     chmod 0664 /sys/devices/11400000.mali/dvfs_max_lock
+    chmod 0664 /sys/devices/11400000.mali/highspeed_clock
+    chmod 0664 /sys/devices/11400000.mali/highspeed_load
 
     chown radio system /sys/class/devfreq/17000020.bus_mif/available_frequencies
     chown radio system /sys/class/devfreq/17000020.bus_mif/min_freq
@@ -112,6 +116,16 @@ on boot
 
     # CPU Idle
     chown system system /sys/module/cpuidle_exynos64_smp/parameters/enable_mask
+
+    # Change permissions for the CPU governor settings
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
 
     # Change permission for interactive governor
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
@@ -131,12 +145,55 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/input_boost
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/input_boost
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/freq_max
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/freq_max
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/freq_min
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/freq_min
+
+    # change permissions for all cpusets we touch at runtime
+    chown system system /dev/cpuset/cpus
+    chown system system /dev/cpuset/foreground/cpus
+    chown system system /dev/cpuset/background/cpus
+    chown system system /dev/cpuset/system-background/cpus
+    chown system system /dev/cpuset/top-app/cpus
+    chmod 0664 /dev/cpuset/cpus
+    chmod 0664 /dev/cpuset/foreground/cpus
+    chmod 0664 /dev/cpuset/background/cpus
+    chmod 0664 /dev/cpuset/system-background/cpus
+    chmod 0664 /dev/cpuset/top-app/cpus
+
+    # Change permissions of the CPU online settings
+    chown system system /sys/devices/system/cpu/cpu0/online
+    chown system system /sys/devices/system/cpu/cpu1/online
+    chown system system /sys/devices/system/cpu/cpu2/online
+    chown system system /sys/devices/system/cpu/cpu3/online
+    chown system system /sys/devices/system/cpu/cpu4/online
+    chown system system /sys/devices/system/cpu/cpu5/online
+    chown system system /sys/devices/system/cpu/cpu6/online
+    chown system system /sys/devices/system/cpu/cpu7/online
+    chmod 0664 /sys/devices/system/cpu/cpu0/online
+    chmod 0664 /sys/devices/system/cpu/cpu1/online
+    chmod 0664 /sys/devices/system/cpu/cpu2/online
+    chmod 0664 /sys/devices/system/cpu/cpu3/online
+    chmod 0664 /sys/devices/system/cpu/cpu4/online
+    chmod 0664 /sys/devices/system/cpu/cpu5/online
+    chmod 0664 /sys/devices/system/cpu/cpu6/online
+    chmod 0664 /sys/devices/system/cpu/cpu7/online
+
+    # Permissions for input_booster
+    chown system radio /sys/class/input_booster/level
+    chown system radio /sys/class/input_booster/head
+    chown system radio /sys/class/input_booster/tail
+    chmod 0664 /sys/class/input_booster/level
+    chmod 0664 /sys/class/input_booster/head
+    chmod 0664 /sys/class/input_booster/tail
 
     chown system log /proc/sec_log
 
@@ -284,6 +341,9 @@ on fs
     chown system radio /sys/class/sec/sec_touchkey/glove_mode
     chown system radio /sys/class/sec/sec_touchkey/flip_mode
     chown system system /sys/class/sec/sec_touchkey/input/enabled
+
+# Permissions for DT2W
+    chown system system /sys/android_touch/doubletap2wake
 
 # Permissions for gpio_keys
     chown radio system /sys/class/sec/sec_key/wakeup_keys
