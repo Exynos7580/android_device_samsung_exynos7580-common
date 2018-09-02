@@ -7,8 +7,9 @@
 TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 
 # Lineage Hardware
-BOARD_HARDWARE_CLASS += hardware/samsung/lineagehw
-BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/lineagehw
+JAVA_SOURCE_OVERLAYS := \
+    org.lineageos.hardware|hardware/samsung/lineagehw|**/*.java \
+    org.lineageos.hardware|$(VENDOR_PATH)/lineagehw|**/*.java
 
 # Properties
 TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
