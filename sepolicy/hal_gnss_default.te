@@ -1,1 +1,7 @@
+# hal_drm_default
 vndbinder_use(hal_gnss_default)
+
+# Allow gnss to access the gpsd data files
+allow hal_gnss_default gps_data_file:dir { add_name write };
+allow hal_gnss_default gps_data_file:fifo_file { create open read setattr write };
+
