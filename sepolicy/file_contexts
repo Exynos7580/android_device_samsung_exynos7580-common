@@ -125,6 +125,7 @@
 ####################################
 # New power HAL HIDL service
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service.universal7580 u:object_r:hal_power_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service.samsung u:object_r:hal_power_default_exec:s0
 
 ####################################
 # Exynos7580 Power HAL
