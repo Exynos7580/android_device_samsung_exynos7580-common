@@ -18,17 +18,17 @@
 VENDOR_PATH := device/samsung/exynos7580-common
 
 ifeq ($(WITH_TWRP),true)
-include $(LOCAL_PATH)/twrp.mk
+include $(VENDOR_PATH)/twrp.mk
 endif
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/exynos7580-common/sepolicy
 
 # Properties
-TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
+TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 
 # HWComposer
 TARGET_HWC2_NO_SKIPVALIDATE := true
 
 # Inherit splitted common board configs
--include $(LOCAL_PATH)/board/*.mk
+-include $(VENDOR_PATH)/board/*.mk
