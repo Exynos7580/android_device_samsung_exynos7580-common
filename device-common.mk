@@ -18,6 +18,9 @@ LOCAL_PATH := device/samsung/exynos7580-common
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# Inherit common vendor tree
+$(call inherit-product, vendor/samsung/exynos7580-common/exynos7580-common-vendor.mk)
+
 -include $(LOCAL_PATH)/product/*.mk
 
 # call Samsung LSI board support package
