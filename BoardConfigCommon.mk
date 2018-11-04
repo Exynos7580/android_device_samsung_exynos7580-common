@@ -17,7 +17,9 @@
 LOCAL_PATH := device/samsung/exynos7580-common
 
 # Include headers
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/exynos7580-common/include
+TARGET_SPECIFIC_HEADER_PATH +=
+    device/samsung/exynos7580-common/include \
+    device/samsung/exynos7580-common/ril/include/telephony
 
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/bin/mediaserver=24 \
@@ -28,7 +30,7 @@ include $(LOCAL_PATH)/twrp.mk
 endif
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/exynos7580-common/sepolicy
+BOARD_SEPOLICY_DIRS := device/samsung/exynos7580-common/sepolicy
 
 # Properties
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
