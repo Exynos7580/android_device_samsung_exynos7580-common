@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
-#           (C) 2017 The LineageOS Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,20 +14,27 @@
 # limitations under the License.
 #
 
-VENDOR_PATH := device/samsung/exynos7580-common
+LOCAL_PATH := device/samsung/exynos7580-common
+
+# Include headers
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/exynos7580-common/include
+
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /system/bin/mediaserver=24 \
+    /system/vendor/bin/hw/rild=24
 
 ifeq ($(WITH_TWRP),true)
-include $(VENDOR_PATH)/twrp.mk
+include $(LOCAL_PATH)/twrp.mk
 endif
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/exynos7580-common/sepolicy
 
 # Properties
-TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
+TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # HWComposer
 TARGET_HWC2_NO_SKIPVALIDATE := true
 
 # Inherit splitted common board configs
--include $(VENDOR_PATH)/board/*.mk
+-include $(LOCAL_PATH)/board/*.mk
